@@ -1,60 +1,360 @@
 swagger: "2.0"
 info:
   version: "0.0.1"
-  title: Hello World App
-# during dev, should point to your local machine
-host: localhost:10010
-# basePath prefixes all resource paths 
-basePath: /
-# 
+  title: Amely API
+host: dev.ezqua.com
+basePath: /ws/v1/
 schemes:
-  # tip: remove http to make production-grade
   - http
   - https
-# format of bodies a client can send (Content-Type)
 consumes:
   - application/json
-# format of the responses to the client (Accepts)
 produces:
   - application/json
 paths:
-  /hello:
-    # binds a127 app logic to a route
-    x-swagger-router-controller: hello_world
-    get:
-      description: Returns 'Hello' to the caller
-      # used as the method name of the controller
-      operationId: hello
+  /authtoken:
+    post:
+      operationId: login
+      consumes: []
       parameters:
-        - name: name
-          in: query
-          description: The name of the person to whom to say hello
-          required: false
-          type: string
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          required:
+          - "password"
+          - "username"
+          properties:
+            username:
+              type: "string"
+            password:
+              type: "string"
+        x-examples:
+          application/json: "{\n  \"username\": \"demo\",\n  \"password\": \"demo123\"\
+            \n}\n"
       responses:
-        "200":
-          description: Success
+        200:
+          description: "Status 200"
           schema:
-            # a pointer to a definition
-            $ref: "#/definitions/HelloWorldResponse"
-        # responses may fall through to errors
-        default:
-          description: Error
+            $ref: "#/definitions/result"
+      security: []
+  /friends:
+    get:
+      operationId: getFriends
+      description: "Return a friends list of an user (if not specified, the current\
+        \ logged in user)"
+      parameters:
+      - name: "user_guid"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
           schema:
-            $ref: "#/definitions/ErrorResponse"
-  /swagger:
-    x-swagger-pipe: swagger_raw
+            type: array
+            items:
+              $ref: "#/definitions/user"
+      security:
+      - user_token: []
+    delete:
+      operationId: deleteFriend
+      description: "Delete a friend"
+      parameters:
+      - name: "guid"
+        in: "query"
+        required: true
+        type: "integer"
+        description: "(Optional) If not presents, indicate that client is requesting\
+          \ the friends\nlist of the currently logged in user. If not, a friends list\
+          \ of user with queried GUID\nwill be returned if available."
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/result"
+      security:
+      - user_token: []
+  /friend_requests:
+    get:
+      operationId: getFriendRequest
+      description: "Return friend request list of user"
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/result"
+      security:
+      - user_token: []
+    delete:
+      operationId: deleteFriendRequest
+      description: "Delete a friend request"
+      parameters:
+      - name: "guid"
+        in: "query"
+        required: true
+        type: "integer"
+        description: "(Optional) If not presents, indicate that client is requesting\
+          \ the friends\nlist of the currently logged in user. If not, a friends list\
+          \ of user with queried GUID\nwill be returned if available."
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/result"
+      security:
+      - user_token: []
+  /feeds:
+    get:
+      operationId: getFeed
+      description: "get the feeds of the requested GUID (currently logged in user\
+        \ if not\nspecified)"
+      parameters:
+      - name: "post_guid"
+        in: "query"
+        required: true
+        type: "integer"
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              post:
+                type: array
+                items:
+                  $ref: "#/definitions/feed"
+              users:
+                type: array
+                items:
+                  $ref: "#/definitions/user"
+      security:
+      - user_token: []
+    post:
+      operationId: getFeeds
+      description: "owner_guid: wall\nempty owner_guid: timeline of user"
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          required:
+          - "feeds_type"
+          properties:
+            feeds_type:
+              type: "string"
+              description: "\"home\",\"user\",\"group\",\"event\",\"business\""
+            owner_guid:
+              type: "string"
+            offset:
+              type: "string"
+            limit:
+              type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              posts:
+                type: array
+                items:
+                  $ref: "#/definitions/feed"
+              users:
+                type: array
+                items:
+                  $ref: "#/definitions/user"
+              moods:
+                type: array
+                items:
+                  $ref: "#/definitions/mood"
+              shares:
+                type: array
+                items:
+                  $ref: "#/definitions/share"
+      security:
+      - user_token: []
+  
 # complex objects have schema definitions
+securityDefinitions:
+  user_token:
+    type: "apiKey"
+    name: "auth_token"
+    in: "query"
 definitions:
-  HelloWorldResponse:
-    required:
-      - message
+  result:
+    type: object
     properties:
-      message:
+      token:
         type: string
-  ErrorResponse:
-    required:
-      - message
+      error:
+        type: number
+      status:
+        type: boolean
+  GUID:
+    type: "integer"
+    description: "Global Unique IDentity"
+  user:
+    type: "object"
     properties:
-      message:
+      guid:
+        $ref: "#/definitions/GUID"
+      username:
+        type: "string"
+      last_name:
+        type: "string"
+      first_name:
+        type: "string"
+      email:
+        type: "string"
+      fullname:
+        type: "string"
+      birthdate:
+        type: "string"
+      gender:
+        type: "string"
+      mobilelogin:
+        type: "string"
+      usercurrency:
+        type: "string"
+      address:
+        type: "string"
+      avatar:
+        type: "string"
+      cover:
+        type: "string"
+  feed:
+    type: "object"
+    required:
+    - "content"
+    - "friends"
+    - "location"
+    - "ossn_photo"
+    - "owner_guid"
+    - "privacy"
+    properties:
+      guid:
+        $ref: "#/definitions/GUID"
+      owner_guid:
+        $ref: "#/definitions/GUID"
+      type:
+        type: "string"
+      content:
+        type: "string"
+      friends:
+        type: "array"
+        description: "tag friends"
+        items:
+          type: "string"
+          description: "tag friends"
+      location:
+        type: "string"
+      privacy:
+        type: "number"
+      ossn_photo:
+        type: "string"
+  mood:
+    type: object
+    properties:
+      title:
         type: string
+      mood_icon:
+        type: string
+      guid:
+        type: integer
+  product:
+    type: object
+    properties:
+      guid:
+        type: string
+      owner_guid:
+        type: string
+      type:
+        type: string
+      time_created:
+        type: string
+      title:
+        type: string
+      description:
+        type: string
+      subtype:
+        type: string
+      tax:
+        type: string
+      price:
+        type: string
+      quantity:
+        type: string
+      weight:
+        type: string
+      expiry_type:
+        type: string
+      friendly_url:
+        type: string
+      currency:
+        type: string
+      origin:
+        type: string
+      product_order:
+        type: string
+      enabled:
+        type: string
+      sku:
+        type: string
+      storage_duration:
+        type: string
+      is_special:
+        type: string
+      product_group:
+        type: string
+      creator_guid:
+        type: string
+      custom_attributes:
+        type: string
+      number_sold:
+        type: string
+      download:
+        type: string
+      featured:
+        type: string
+      sale_price:
+        type: string
+      duration:
+        type: string
+      begin_day:
+        type: string
+      end_day:
+        type: string
+      manufacturer:
+        type: string
+      approved:
+        type: string
+      current_snapshot:
+        type: string
+      voucher_category:
+        type: string
+      ticket_category:
+        type: string
+      shop_categories:
+        type: string
+      market_categories:
+        type: string
+      images:
+        type: string
+  share:
+    type: object
+    properties:
+      posts:
+        type: array
+        items:
+          $ref: "#/definitions/feed"
+      products:
+        type: array
+        items:
+          $ref: "#/definitions/product"
+        
