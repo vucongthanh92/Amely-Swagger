@@ -1,22 +1,20 @@
 {
-  "name": "amely",
-  "version": "0.0.1",
-  "private": true,
-  "description": "New Swagger API Project",
-  "keywords": [],
-  "author": "",
-  "license": "",
-  "main": "app.js",
+  "name": "cryosoft_api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
   "dependencies": {
-    "connect": "^3.3.5",
-    "swagger-connect": "^0.1.0"
-  },
-  "devDependencies": {
-    "should": "^7.1.0",
-    "supertest": "^1.0.0"
+    "merge-yaml-cli": "^1.1.1",
+    "ng-swagger-gen": "^0.9.4",
+    "swagger-ui-watcher": "^1.0.7"
   },
   "scripts": {
-    "start": "node app.js",
-    "test": "swagger project test"
+    "start": "node index.js",
+    "merge": "./node_modules/.bin/merge-yaml -i ./src/amely_api.yaml ./src/security/*.yaml ./src/routes/*.yaml ./src/models/*.yaml -o ./build/swagger.yaml",
+    "tojson": "yarn merge && swagger-codegen generate -i ./build/swagger.yaml -l swagger -o ./build/",
+    "buildng": "./node_modules/.bin/ng-swagger-gen -i ./build/swagger.json -o ../ng-service/src/app/api/",
+    "build": "yarn merge && yarn tojson && yarn buildng",
+    "buildlumen": "swagger-codegen generate -i ./build/swagger.yaml -l lumen -o ../web_services",
+    "lumen": "yarn merge && yarn buildlumen"
   }
 }

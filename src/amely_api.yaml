@@ -1,0 +1,731 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: Amely API
+host: dev.ezqua.com
+basePath: /ws/v1/
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /friends:
+    get:
+      operationId: getFriends
+      description: "Return a friends list of an user (if not specified, the current\
+        \ logged in user)"
+      parameters:
+      - name: "user_guid"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/User"
+      security:
+      - user_token: []
+    delete:
+      operationId: deleteFriend
+      description: "Delete a friend"
+      parameters:
+      - name: "guid"
+        in: "query"
+        required: true
+        type: "integer"
+        description: "(Optional) If not presents, indicate that client is requesting\
+          \ the friends\nlist of the currently logged in user. If not, a friends list\
+          \ of user with queried GUID\nwill be returned if available."
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+  /friend_requests:
+    get:
+      operationId: getFriendRequest
+      description: "Return friend request list of user"
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+    delete:
+      operationId: deleteFriendRequest
+      description: "Delete a friend request"
+      parameters:
+      - name: "guid"
+        in: "query"
+        required: true
+        type: "integer"
+        description: "(Optional) If not presents, indicate that client is requesting\
+          \ the friends\nlist of the currently logged in user. If not, a friends list\
+          \ of user with queried GUID\nwill be returned if available."
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+  /feeds:
+    get:
+      operationId: getFeed
+      description: "get the feeds of the requested GUID (currently logged in user\
+        \ if not\nspecified)"
+      parameters:
+      - name: "post_guid"
+        in: "query"
+        required: true
+        type: "integer"
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              post:
+                type: array
+                items:
+                  $ref: "#/definitions/Feed"
+              users:
+                type: array
+                items:
+                  $ref: "#/definitions/User"
+      security:
+      - user_token: []
+    post:
+      operationId: getFeeds
+      description: "owner_guid: wall\nempty owner_guid: timeline of user"
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          required:
+          - "feeds_type"
+          properties:
+            feeds_type:
+              type: "string"
+              description: "\"home\",\"user\",\"group\",\"event\",\"business\""
+            owner_guid:
+              type: "string"
+            offset:
+              type: "string"
+            limit:
+              type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              posts:
+                type: array
+                items:
+                  $ref: "#/definitions/Feed"
+              users:
+                type: array
+                items:
+                  $ref: "#/definitions/User"
+              moods:
+                type: array
+                items:
+                  $ref: "#/definitions/Mood"
+              shares:
+                type: array
+                items:
+                  $ref: "#/definitions/Share"
+      security:
+      - user_token: []
+    put:
+      operationId: createFeed
+      description: "Post a new feed (Can't upload image)"
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          required:
+          - "content"
+          - "friends"
+          - "images"
+          - "location"
+          - "mood"
+          - "privacy"
+          properties:
+            content:
+              type: "string"
+            friends:
+              type: "string"
+            location:
+              type: "string"
+            privacy:
+              type: "string"
+            mood:
+              type: "string"
+            images:
+              type: "string"
+            owner_guid:
+              type: "string"
+            type:
+              type: "string"
+              example: "\"user\",\"group\",\"event\",\"businesspage\"\n"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+    patch:
+      operationId: updateFeed
+      description: "Update a posted feed"
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          required:
+          - "content"
+          - "friends"
+          - "images"
+          - "location"
+          - "mood"
+          - "post_guid"
+          - "privacy"
+          properties:
+            post_guid:
+              type: "string"
+            content:
+              type: "string"
+            friends:
+              type: "string"
+            location:
+              type: "string"
+            privacy:
+              type: "string"
+            mood:
+              type: "string"
+            images:
+              type: "string"
+            owner_guid:
+              type: "string"
+            type:
+              type: "string"
+              example: "\"user\",\"group\",\"event\"\n"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+    delete:
+      operationId: deleteFeed
+      description: "Delete a posted feed"
+      parameters:
+      - name: "post_guid"
+        in: "query"
+        required: true
+        type: "integer"
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+  /comments:
+    get:
+      operationId: getComment
+      description: "get info of a comment"
+      parameters:
+      - name: "comment_guid"
+        in: "query"
+        required: true
+        type: "integer"
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+    post:
+      operationId: getComments
+      description: "get all comment of the requested feed_guid"
+      parameters:
+      - name: "post_guid"
+        in: "query"
+        required: true
+        type: "integer"
+        description: "Global Unique IDentity"
+      - name: "type"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "offset"
+        in: "query"
+        required: true
+        type: "number"
+      - name: "limit"
+        in: "query"
+        required: true
+        type: "number"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+    put:
+      operationId: createComment
+      description: "insert a new comment"
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          required:
+          - "comment"
+          - "images"
+          - "post_guid"
+          properties:
+            post_guid:
+              type: "string"
+            comment:
+              type: "string"
+            images:
+              type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+    delete:
+      operationId: deleteComment
+      description: "delete comment"
+      parameters:
+      - name: "guid"
+        in: "query"
+        required: true
+        type: "integer"
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+  /likes:
+    get:
+      operationId: getLikes
+      description: ""
+      parameters:
+      - name: "post_guid"
+        in: "query"
+        required: true
+        type: "integer"
+        description: "Global Unique IDentity"
+      - name: "type"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+    put:
+      operationId: createLike
+      description: "type: \"post\",\"business:page\""
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          required:
+          - "guid"
+          - "type"
+          properties:
+            type:
+              type: "array"
+              items:
+                type: "string"
+            guid:
+              $ref: "#/definitions/GUID"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+    delete:
+      operationId: deleteLike
+      description: "unlike a feed"
+      parameters:
+      - name: "guid"
+        in: "query"
+        required: true
+        type: "integer"
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+  /invitation:
+    get:
+      operationId: getInvitation
+      description: "Return invites list of group"
+      parameters:
+      - name: "to_guid"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "invitation_type"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+    post:
+      operationId: getInvitations
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+    put:
+      operationId: createInvitation
+      description: "Invite people other join"
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          required:
+          - "from_guid"
+          - "invitation_type"
+          - "to_guid"
+          properties:
+            from_guid:
+              type: "string"
+            to_guid:
+              type: "string"
+            invitation_type:
+              type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+    delete:
+      operationId: deleteInvitation
+      description: "Delete invitation"
+      parameters:
+      - name: "from_guid"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "to_guid"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "invitation_type"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+  /approval:
+    put:
+      operationId: createApproval
+      description: "Approve invitation request"
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          required:
+          - "from_guid"
+          - "invitation_type"
+          - "to_guid"
+          properties:
+            invitation_type:
+              type: "string"
+            from_guid:
+              type: "string"
+            to_guid:
+              type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+    delete:
+      operationId: deleteApproval
+      description: "Delete approval"
+      parameters:
+      - name: "from_guid"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "to_guid"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "invitation_type"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+  /acceptance:
+    get:
+      operationId: getAcceptance
+      description: "Return invites list of group"
+      parameters:
+      - name: "to_guid"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "invitation_type"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+# complex objects have schema definitions
+securityDefinitions:
+  user_token:
+    type: "apiKey"
+    name: "auth_token"
+    in: "query"
+definitions:
+  GUID:
+    type: "integer"
+    description: "Global Unique IDentity"
+  User:
+    type: "object"
+    properties:
+      guid:
+        $ref: "#/definitions/GUID"
+      username:
+        type: "string"
+      last_name:
+        type: "string"
+      first_name:
+        type: "string"
+      email:
+        type: "string"
+      fullname:
+        type: "string"
+      birthdate:
+        type: "string"
+      gender:
+        type: "string"
+      mobilelogin:
+        type: "string"
+      usercurrency:
+        type: "string"
+      address:
+        type: "string"
+      avatar:
+        type: "string"
+      cover:
+        type: "string"
+  Feed:
+    type: "object"
+    required:
+    - "content"
+    - "friends"
+    - "location"
+    - "ossn_photo"
+    - "owner_guid"
+    - "privacy"
+    properties:
+      guid:
+        $ref: "#/definitions/GUID"
+      owner_guid:
+        $ref: "#/definitions/GUID"
+      type:
+        type: "string"
+      content:
+        type: "string"
+      friends:
+        type: "array"
+        description: "tag friends"
+        items:
+          type: "string"
+          description: "tag friends"
+      location:
+        type: "string"
+      privacy:
+        type: "number"
+      ossn_photo:
+        type: "string"
+  Mood:
+    type: object
+    properties:
+      title:
+        type: string
+      mood_icon:
+        type: string
+      guid:
+        type: integer
+  Product:
+    type: object
+    properties:
+      guid:
+        type: string
+      owner_guid:
+        type: string
+      type:
+        type: string
+      time_created:
+        type: string
+      title:
+        type: string
+      description:
+        type: string
+      subtype:
+        type: string
+      tax:
+        type: string
+      price:
+        type: string
+      quantity:
+        type: string
+      weight:
+        type: string
+      expiry_type:
+        type: string
+      friendly_url:
+        type: string
+      currency:
+        type: string
+      origin:
+        type: string
+      product_order:
+        type: string
+      enabled:
+        type: string
+      sku:
+        type: string
+      storage_duration:
+        type: string
+      is_special:
+        type: string
+      product_group:
+        type: string
+      creator_guid:
+        type: string
+      custom_attributes:
+        type: string
+      number_sold:
+        type: string
+      download:
+        type: string
+      featured:
+        type: string
+      sale_price:
+        type: string
+      duration:
+        type: string
+      begin_day:
+        type: string
+      end_day:
+        type: string
+      manufacturer:
+        type: string
+      approved:
+        type: string
+      current_snapshot:
+        type: string
+      voucher_category:
+        type: string
+      ticket_category:
+        type: string
+      shop_categories:
+        type: string
+      market_categories:
+        type: string
+      images:
+        type: string
+  Share:
+    type: object
+    properties:
+      posts:
+        type: array
+        items:
+          $ref: "#/definitions/Feed"
+      products:
+        type: array
+        items:
+          $ref: "#/definitions/Product"

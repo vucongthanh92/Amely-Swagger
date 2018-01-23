@@ -1,0 +1,38 @@
+paths:
+  /authtoken:
+    post:
+      operationId: login
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          required:
+          - "password"
+          - "username"
+          properties:
+            username:
+              type: "string"
+            password:
+              type: "string"
+        x-examples:
+          application/json: "{\n  \"username\": \"demo\",\n  \"password\": \"demo123\"\
+            \n}\n"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security: []
+definitions:
+  DefaultResponse:
+    type: object
+    properties:
+      token:
+        type: string
+      error:
+        type: number
+      status:
+        type: boolean
