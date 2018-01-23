@@ -1,0 +1,31 @@
+paths:
+  /friend_requests:
+    get:
+      operationId: getFriendRequest
+      description: "Return friend request list of user"
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+    delete:
+      operationId: deleteFriendRequest
+      description: "Delete a friend request"
+      parameters:
+      - name: "guid"
+        in: "query"
+        required: true
+        type: "integer"
+        description: "(Optional) If not presents, indicate that client is requesting\
+          \ the friends\nlist of the currently logged in user. If not, a friends list\
+          \ of user with queried GUID\nwill be returned if available."
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []

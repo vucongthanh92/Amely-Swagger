@@ -1,0 +1,21 @@
+paths:
+  /acceptance:
+    get:
+      operationId: getAcceptance
+      description: "Return invites list of group"
+      parameters:
+      - name: "to_guid"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "invitation_type"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []

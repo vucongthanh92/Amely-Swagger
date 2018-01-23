@@ -26,13 +26,3 @@ paths:
           schema:
             $ref: "#/definitions/DefaultResponse"
       security: []
-definitions:
-  DefaultResponse:
-    type: object
-    properties:
-      token:
-        type: string
-      error:
-        type: number
-      status:
-        type: boolean

@@ -1,0 +1,65 @@
+paths:
+  /likes:
+    get:
+      operationId: getLikes
+      description: ""
+      parameters:
+      - name: "post_guid"
+        in: "query"
+        required: true
+        type: "integer"
+        description: "Global Unique IDentity"
+      - name: "type"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+    put:
+      operationId: createLike
+      description: "type: \"post\",\"business:page\""
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          required:
+          - "guid"
+          - "type"
+          properties:
+            type:
+              type: "array"
+              items:
+                type: "string"
+            guid:
+              $ref: "#/definitions/GUID"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+    delete:
+      operationId: deleteLike
+      description: "unlike a feed"
+      parameters:
+      - name: "guid"
+        in: "query"
+        required: true
+        type: "integer"
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []

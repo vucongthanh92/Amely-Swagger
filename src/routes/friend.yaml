@@ -1,0 +1,38 @@
+paths:
+  /friends:
+    get:
+      operationId: getFriends
+      description: "Return a friends list of an user (if not specified, the current\
+        \ logged in user)"
+      parameters:
+      - name: "user_guid"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/User"
+      security:
+      - user_token: []
+    delete:
+      operationId: deleteFriend
+      description: "Delete a friend"
+      parameters:
+      - name: "guid"
+        in: "query"
+        required: true
+        type: "integer"
+        description: "(Optional) If not presents, indicate that client is requesting\
+          \ the friends\nlist of the currently logged in user. If not, a friends list\
+          \ of user with queried GUID\nwill be returned if available."
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []

@@ -1,0 +1,53 @@
+paths:
+  /approval:
+    put:
+      operationId: createApproval
+      description: "Approve invitation request"
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          required:
+          - "from_guid"
+          - "invitation_type"
+          - "to_guid"
+          properties:
+            invitation_type:
+              type: "string"
+            from_guid:
+              type: "string"
+            to_guid:
+              type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+    delete:
+      operationId: deleteApproval
+      description: "Delete approval"
+      parameters:
+      - name: "from_guid"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "to_guid"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "invitation_type"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []

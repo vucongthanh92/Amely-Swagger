@@ -1,0 +1,90 @@
+paths:
+  /comments:
+    get:
+      operationId: getComment
+      description: "get info of a comment"
+      parameters:
+      - name: "comment_guid"
+        in: "query"
+        required: true
+        type: "integer"
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+    post:
+      operationId: getComments
+      description: "get all comment of the requested feed_guid"
+      parameters:
+      - name: "post_guid"
+        in: "query"
+        required: true
+        type: "integer"
+        description: "Global Unique IDentity"
+      - name: "type"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "offset"
+        in: "query"
+        required: true
+        type: "number"
+      - name: "limit"
+        in: "query"
+        required: true
+        type: "number"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+    put:
+      operationId: createComment
+      description: "insert a new comment"
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          required:
+          - "comment"
+          - "images"
+          - "post_guid"
+          properties:
+            post_guid:
+              type: "string"
+            comment:
+              type: "string"
+            images:
+              type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
+    delete:
+      operationId: deleteComment
+      description: "delete comment"
+      parameters:
+      - name: "guid"
+        in: "query"
+        required: true
+        type: "integer"
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+      security:
+      - user_token: []
