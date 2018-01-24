@@ -2,20 +2,31 @@ paths:
   /acceptance:
     get:
       operationId: getAcceptance
-      description: "Return invites list of group"
+      description: Return acceptances list
       parameters:
-      - name: "to_guid"
-        in: "query"
+      - name: type
+        in: query
         required: true
-        type: "string"
-      - name: "invitation_type"
-        in: "query"
+        type: string
+      responses:
+        200:
+          description: Status 200
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+    delete:
+      operationId: deleteAcceptance
+      description: Delete acceptance
+      parameters:
+      - name: guid
+        in: query
         required: true
-        type: "string"
+        type: integer
+      - name: type
+        in: query
+        required: true
+        type: string
       responses:
         200:
           description: "Status 200"
           schema:
             $ref: "#/definitions/DefaultResponse"
-      security:
-      - user_token: []

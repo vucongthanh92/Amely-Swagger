@@ -18,7 +18,7 @@ paths:
               result:
                 $ref: "#/definitions/DefaultResponse"
               group:
-                type: array
+                type: object
                 items:
                   $ref: "#/definitions/Group"
       security:
@@ -38,6 +38,8 @@ paths:
           schema:
             type: object
             properties:
+              result:
+                $ref: "#/definitions/DefaultResponse"
               groups:
                 type: array
                 items:

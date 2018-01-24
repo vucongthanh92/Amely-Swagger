@@ -31,35 +31,36 @@ definitions:
       status:
         type: boolean
   Feed:
-    type: "object"
-    required:
-    - "content"
-    - "friends"
-    - "location"
-    - "ossn_photo"
-    - "owner_guid"
-    - "privacy"
+    type: object
     properties:
       guid:
-        $ref: "#/definitions/GUID"
+        type: number
       owner_guid:
-        $ref: "#/definitions/GUID"
+        type: number
       type:
-        type: "string"
-      content:
-        type: "string"
-      friends:
-        type: "array"
-        description: "tag friends"
+        type: string
+      subtype:
+        type: string
+      mood:
+        $ref: "#/definitions/Mood"
+      poster_guid:
+        type: number
+      access:
+        type: number
+      likes:
+        type: number
+      liked:
+        type: boollean
+      comments:
+        type: number
+      title:
+        type: string
+      wallphoto:
+        type: array
         items:
-          type: "string"
-          description: "tag friends"
-      location:
-        type: "string"
-      privacy:
-        type: "number"
-      ossn_photo:
-        type: "string"
+          type: string
+      time_created:
+        type: string
   Share:
     type: object
     properties:
