@@ -1,0 +1,69 @@
+paths:
+  /profile:
+      get:
+        operationId: getProfile
+        description: "get profile page. have only done user profile, not event, group,\
+          \ shop"
+        parameters:
+        - name: "guid"
+          in: "query"
+          required: false
+          type: "integer"
+          description: "Global Unique IDentity"
+        - name: "username"
+          in: "query"
+          required: false
+          type: "integer"
+          description: "Global Unique IDentity"
+        responses:
+          200:
+            description: "Status 200"
+            schema:
+              $ref: "#/definitions/DefaultResponse"
+        security:
+        - user_token: []
+      patch:
+        operationId: updateProfile
+        description: "update profile"
+        consumes: []
+        parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            required:
+            - "birthdate"
+            - "email"
+            - "firstname"
+            - "friends_hidden"
+            - "gender"
+            - "lastname"
+            - "usercurrency"
+            properties:
+              firstname:
+                type: "string"
+              lastname:
+                type: "string"
+              email:
+                type: "string"
+              gender:
+                type: "string"
+              birthdate:
+                type: "string"
+              usercurrency:
+                type: "string"
+              friends_hidden:
+                type: "string"
+        responses:
+          200:
+            description: "Status 200"
+            schema:
+              type: object
+              properties:
+                result:
+                  $ref: "#/definitions/DefaultResponse"
+                user:
+                  $ref: "#/definitions/User"
+        security:
+        - user_token: []

@@ -17,9 +17,7 @@ paths:
             type: object
             properties:
               post:
-                type: array
-                items:
-                  $ref: "#/definitions/Feed"
+                $ref: "#/definitions/Feed"
               users:
                 type: array
                 items:
