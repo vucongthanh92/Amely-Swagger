@@ -18,9 +18,6 @@ securityDefinitions:
     name: "auth_token"
     in: "query"
 definitions:
-  GUID:
-    type: "integer"
-    description: "Global Unique IDentity"
   DefaultResponse:
     type: object
     properties:
@@ -60,7 +57,16 @@ definitions:
         items:
           type: string
       time_created:
-        type: string
+        type: any
+      description:
+        type: object
+        properties:
+          post:
+            type: string
+          friend:
+            type: string
+          location:
+            type: string
   Share:
     type: object
     properties:
@@ -85,7 +91,7 @@ definitions:
     type: "object"
     properties:
       guid:
-        $ref: "#/definitions/GUID"
+        type: number
       username:
         type: "string"
       last_name:
@@ -118,7 +124,7 @@ definitions:
     - "name"
     properties:
       guid:
-        $ref: "#/definitions/GUID"
+        type: number
       name:
         type: "string"
       members:
