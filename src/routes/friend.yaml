@@ -8,7 +8,7 @@ paths:
       - name: "user_guid"
         in: "query"
         required: true
-        type: "string"
+        type: number
       responses:
         200:
           description: "Status 200"
@@ -16,8 +16,6 @@ paths:
             type: array
             items:
               $ref: "#/definitions/User"
-      security:
-      - user_token: []
     delete:
       operationId: deleteFriend
       description: "Delete a friend"
@@ -25,7 +23,7 @@ paths:
       - name: "guid"
         in: "query"
         required: true
-        type: "integer"
+        type: number
         description: "(Optional) If not presents, indicate that client is requesting\
           \ the friends\nlist of the currently logged in user. If not, a friends list\
           \ of user with queried GUID\nwill be returned if available."
@@ -34,5 +32,4 @@ paths:
           description: "Status 200"
           schema:
             $ref: "#/definitions/DefaultResponse"
-      security:
-      - user_token: []
+            

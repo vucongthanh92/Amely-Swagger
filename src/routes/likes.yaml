@@ -7,19 +7,17 @@ paths:
       - name: "post_guid"
         in: "query"
         required: true
-        type: "integer"
+        type: number
         description: "Global Unique IDentity"
       - name: "type"
         in: "query"
         required: true
-        type: "string"
+        type: string
       responses:
         200:
           description: "Status 200"
           schema:
             $ref: "#/definitions/DefaultResponse"
-      security:
-      - user_token: []
     put:
       operationId: createLike
       description: "type: \"post\",\"business:page\""
@@ -35,18 +33,16 @@ paths:
           - "type"
           properties:
             type:
-              type: "array"
+              type: array
               items:
-                type: "string"
+                type: string
             guid:
-              $ref: "#/definitions/GUID"
+              type: number
       responses:
         200:
           description: "Status 200"
           schema:
             $ref: "#/definitions/DefaultResponse"
-      security:
-      - user_token: []
     delete:
       operationId: deleteLike
       description: "unlike a feed"
@@ -54,12 +50,10 @@ paths:
       - name: "guid"
         in: "query"
         required: true
-        type: "integer"
+        type: number
         description: "Global Unique IDentity"
       responses:
         200:
           description: "Status 200"
           schema:
             $ref: "#/definitions/DefaultResponse"
-      security:
-      - user_token: []

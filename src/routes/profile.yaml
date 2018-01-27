@@ -8,12 +8,12 @@ paths:
       - name: "guid"
         in: "query"
         required: false
-        type: "integer"
+        type: number
         description: "Global Unique IDentity"
       - name: "username"
         in: "query"
         required: false
-        type: "integer"
+        type: number
         description: "Global Unique IDentity"
       responses:
         200:
@@ -42,19 +42,19 @@ paths:
           - "usercurrency"
           properties:
             firstname:
-              type: "string"
+              type: string
             lastname:
-              type: "string"
+              type: string
             email:
-              type: "string"
+              type: string
             gender:
-              type: "string"
+              type: string
             birthdate:
-              type: "string"
+              type: string
             usercurrency:
-              type: "string"
+              type: string
             friends_hidden:
-              type: "string"
+              type: string
       responses:
         200:
           description: "Status 200"
@@ -65,5 +65,3 @@ paths:
                 $ref: "#/definitions/DefaultResponse"
               user:
                 $ref: "#/definitions/User"
-      security:
-      - user_token: []

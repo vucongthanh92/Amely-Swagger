@@ -26,8 +26,6 @@ paths:
           description: "Status 200"
           schema:
             $ref: "#/definitions/DefaultResponse"
-      security:
-      - user_token: []
     delete:
       operationId: deleteApproval
       description: "Delete approval"
@@ -49,5 +47,3 @@ paths:
           description: "Status 200"
           schema:
             $ref: "#/definitions/DefaultResponse"
-      security:
-      - user_token: []

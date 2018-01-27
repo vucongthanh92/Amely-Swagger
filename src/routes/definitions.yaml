@@ -1,0 +1,237 @@
+definitions:
+  DefaultResponse:
+    type: object
+    properties:
+      token:
+        type: string
+      error:
+        type: number
+      status:
+        type: boolean
+  Feed:
+    type: object
+    properties:
+      guid:
+        type: number
+      owner_guid:
+        type: number
+      type:
+        type: string
+      subtype:
+        type: string
+      mood:
+        $ref: "#/definitions/Mood"
+      poster_guid:
+        type: number
+      access:
+        type: number
+      likes:
+        type: number
+      liked:
+        type: boollean
+      comments:
+        type: number
+      title:
+        type: string
+      wallphoto:
+        type: array
+        items:
+          type: string
+      time_created:
+        type: any
+      description:
+        type: object
+        properties:
+          post:
+            type: string
+          friend:
+            type: string
+          location:
+            type: string
+  Share:
+    type: object
+    properties:
+      posts:
+        type: array
+        items:
+          $ref: "#/definitions/Feed"
+      products:
+        type: array
+        items:
+          $ref: "#/definitions/Product"
+  Mood:
+    type: object
+    properties:
+      title:
+        type: string
+      mood_icon:
+        type: string
+      guid:
+        type: integer
+  User:
+    type: "object"
+    properties:
+      guid:
+        type: number
+      username:
+        type: "string"
+      last_name:
+        type: "string"
+      first_name:
+        type: "string"
+      email:
+        type: "string"
+      fullname:
+        type: "string"
+      birthdate:
+        type: "string"
+      gender:
+        type: "string"
+      mobilelogin:
+        type: "string"
+      usercurrency:
+        type: "string"
+      address:
+        type: "string"
+      avatar:
+        type: "string"
+      cover:
+        type: "string"
+  Group:
+    type: "object"
+    required:
+    - "guid"
+    - "members"
+    - "name"
+    properties:
+      guid:
+        type: number
+      name:
+        type: "string"
+      members:
+        type: "array"
+        items:
+          $ref: "#/definitions/User"
+  Product:
+    type: object
+    properties:
+      guid:
+        type: string
+      owner_guid:
+        type: string
+      type:
+        type: string
+      time_created:
+        type: string
+      title:
+        type: string
+      description:
+        type: string
+      subtype:
+        type: string
+      tax:
+        type: string
+      price:
+        type: string
+      quantity:
+        type: string
+      weight:
+        type: string
+      expiry_type:
+        type: string
+      friendly_url:
+        type: string
+      currency:
+        type: string
+      origin:
+        type: string
+      product_order:
+        type: string
+      enabled:
+        type: string
+      sku:
+        type: string
+      storage_duration:
+        type: string
+      is_special:
+        type: string
+      product_group:
+        type: string
+      creator_guid:
+        type: string
+      custom_attributes:
+        type: string
+      number_sold:
+        type: string
+      download:
+        type: string
+      featured:
+        type: string
+      sale_price:
+        type: string
+      duration:
+        type: string
+      begin_day:
+        type: string
+      end_day:
+        type: string
+      manufacturer:
+        type: string
+      approved:
+        type: string
+      current_snapshot:
+        type: string
+      voucher_category:
+        type: string
+      ticket_category:
+        type: string
+      shop_categories:
+        type: string
+      market_categories:
+        type: string
+      images:
+        type: string
+  Item:
+    type: object
+    properties:
+      guid:
+        type: string
+      owner_guid:
+        type: string
+      type:
+        type: string
+      time_created:
+        type: string
+      title:
+        type: string
+      description:
+        type: string
+      subtype:
+        type: string
+      inventory_type:
+        type: string
+      quantity:
+        type: string
+      product_snapshot:
+        $ref: "#/definitions/Product"
+      expiry_type:
+        type: string
+      is_special:
+        type: string
+      stored_end:
+        type: string
+  Category:
+    type: object
+    properties:
+      title:
+        type: string
+      description:
+        type: string
+      enabled:
+        type: string
+      sort_order:
+        type: string
+      parent_guid:
+        type: string
+      logo:
+        type: string

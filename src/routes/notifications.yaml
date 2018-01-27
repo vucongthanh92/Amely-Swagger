@@ -2,13 +2,33 @@ paths:
   /notifications:
     get:
       operationId: getNotification
-      description: "get notifications"
+      description: "get notification"
       parameters:
       - name: "guid"
         in: "query"
         required: false
         type: number
         description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+    post:
+      operationId: getNotifications
+      description: "get all notification"
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          required:
+          - "owner_guid"
+          properties:
+            owner_guid:
+              type: number
       responses:
         200:
           description: "Status 200"
@@ -24,24 +44,10 @@ paths:
         schema:
           type: "object"
           required:
-          - "comment"
-          - "images"
-          - "post_guid"
+          - "guid"
           properties:
-            post_guid:
-              type: "string"
-            comment:
-              type: "string"
-            images:
-              type: "string"
-      responses:
-        200:
-          description: "Status 200"
-          schema:
-            $ref: "#/definitions/DefaultResponse"
-    delete:
-      operationId: deleteNotification
-      description: delete a notification
+            guid:
+              type: number
       responses:
         200:
           description: "Status 200"

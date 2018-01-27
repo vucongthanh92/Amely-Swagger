@@ -8,7 +8,7 @@ paths:
       - name: "post_guid"
         in: "query"
         required: true
-        type: "integer"
+        type: number
         description: "Global Unique IDentity"
       responses:
         200:
@@ -22,8 +22,6 @@ paths:
                 type: array
                 items:
                   $ref: "#/definitions/User"
-      security:
-      - user_token: []
     post:
       operationId: getFeeds
       description: "owner_guid: wall\nempty owner_guid: timeline of user"
@@ -38,14 +36,14 @@ paths:
           - "feeds_type"
           properties:
             feeds_type:
-              type: "string"
+              type: string
               description: "\"home\",\"user\",\"group\",\"event\",\"business\""
             owner_guid:
-              type: "string"
+              type: number
             offset:
-              type: "string"
+              type: number
             limit:
-              type: "string"
+              type: number
       responses:
         200:
           description: "Status 200"
@@ -68,8 +66,6 @@ paths:
                 type: array
                 items:
                   $ref: "#/definitions/Share"
-      security:
-      - user_token: []
     put:
       operationId: createFeed
       description: "Post a new feed (Can't upload image)"
@@ -89,29 +85,27 @@ paths:
           - "privacy"
           properties:
             content:
-              type: "string"
+              type: string
             friends:
-              type: "string"
+              type: string
             location:
-              type: "string"
+              type: string
             privacy:
-              type: "string"
+              type: string
             mood:
-              type: "string"
+              type: string
             images:
-              type: "string"
+              type: string
             owner_guid:
-              type: "string"
+              type: number
             type:
-              type: "string"
+              type: string
               example: "\"user\",\"group\",\"event\",\"businesspage\"\n"
       responses:
         200:
           description: "Status 200"
           schema:
             $ref: "#/definitions/DefaultResponse"
-      security:
-      - user_token: []
     patch:
       operationId: updateFeed
       description: "Update a posted feed"
@@ -132,31 +126,29 @@ paths:
           - "privacy"
           properties:
             post_guid:
-              type: "string"
+              type: number
             content:
-              type: "string"
+              type: string
             friends:
-              type: "string"
+              type: string
             location:
-              type: "string"
+              type: string
             privacy:
-              type: "string"
+              type: string
             mood:
-              type: "string"
+              type: string
             images:
-              type: "string"
+              type: string
             owner_guid:
-              type: "string"
+              type: number
             type:
-              type: "string"
+              type: string
               example: "\"user\",\"group\",\"event\"\n"
       responses:
         200:
           description: "Status 200"
           schema:
             $ref: "#/definitions/DefaultResponse"
-      security:
-      - user_token: []
     delete:
       operationId: deleteFeed
       description: "Delete a posted feed"
@@ -164,12 +156,10 @@ paths:
       - name: "post_guid"
         in: "query"
         required: true
-        type: "integer"
+        type: number
         description: "Global Unique IDentity"
       responses:
         200:
           description: "Status 200"
           schema:
             $ref: "#/definitions/DefaultResponse"
-      security:
-      - user_token: []

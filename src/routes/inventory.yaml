@@ -1,0 +1,46 @@
+paths:
+  /inventory:
+    get:
+      operationId: getInventory
+      parameters:
+      - name: "owner_guid"
+        in: "query"
+        required: false
+        type: number
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Item"
+    post:
+      operationId: getInventoryByType
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          required:
+          - "item_type"
+          - "limit"
+          - "offset"
+          - "owner_guid"
+          properties:
+            offset:
+              type: number
+            limit:
+              type: number
+            owner_guid:
+              type: number
+            item_type:
+              type: string
+              description: "\"new\",\n\"wishlist\",\n\"expiry\",\n\"non_expiry\",\n\
+                \"voucher\",\n\"ticket\",\n\"givelist\",\n\"expired\",\n\"stored\"\
+                ,\n\"nearly_expiry\",\n\"nearly_stored\""
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Item"

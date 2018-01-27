@@ -7,7 +7,7 @@ paths:
       - name: "group_guid"
         in: "query"
         required: true
-        type: "integer"
+        type: number
         description: "Global Unique IDentity"
       responses:
         200:
@@ -18,11 +18,7 @@ paths:
               result:
                 $ref: "#/definitions/DefaultResponse"
               group:
-                type: object
-                items:
-                  $ref: "#/definitions/Group"
-      security:
-      - user_token: []
+                $ref: "#/definitions/Group"
     post:
       operationId: getGroups
       description: ""
@@ -30,7 +26,7 @@ paths:
       - name: "owner_guid"
         in: "query"
         required: false
-        type: "integer"
+        type: number
         description: "Global Unique IDentity"
       responses:
         200:
@@ -48,8 +44,6 @@ paths:
                 type: array
                 items:
                   $ref: "#/definitions/User"
-      security:
-      - user_token: []
     put:
       operationId: createGroup
       description: "Insert new group"
@@ -69,26 +63,24 @@ paths:
           - "privacy"
           properties:
             name:
-              type: "string"
+              type: string
             description:
-              type: "string"
+              type: string
             privacy:
-              type: "string"
+              type: string
             member_invite:
-              type: "string"
+              type: string
             membership:
-              type: "string"
+              type: string
             members:
-              type: "array"
+              type: array
               items:
-                type: "string"
+                type: string
       responses:
         200:
           description: "Status 200"
           schema:
             $ref: "#/definitions/DefaultResponse"
-      security:
-      - user_token: []
     patch:
       operationId: updateGroup
       description: "Update group"
@@ -108,24 +100,22 @@ paths:
           - "privacy"
           properties:
             group_guid:
-              type: "string"
+              type: number
             name:
-              type: "string"
+              type: string
             description:
-              type: "string"
+              type: string
             privacy:
-              type: "string"
+              type: string
             member_invite:
-              type: "string"
+              type: string
             membership:
-              type: "string"
+              type: string
       responses:
         200:
           description: "Status 200"
           schema:
             $ref: "#/definitions/DefaultResponse"
-      security:
-      - user_token: []
     delete:
       operationId: deleteGroup
       description: "Delete group"
@@ -133,12 +123,10 @@ paths:
       - name: "group_guid"
         in: "query"
         required: true
-        type: "integer"
+        type: number
         description: "Global Unique IDentity"
       responses:
         200:
           description: "Status 200"
           schema:
             $ref: "#/definitions/DefaultResponse"
-      security:
-      - user_token: []

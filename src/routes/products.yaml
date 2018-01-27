@@ -1,0 +1,68 @@
+paths:
+  /products:
+    get:
+      operationId: getProduct
+      parameters:
+      - name: "guid"
+        in: "query"
+        required: true
+        type: number
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              result:
+                type: array
+                items:
+                  $ref: "#/definitions/DefaultResponse"
+              product:
+                type: array
+                items:
+                  $ref: "#/definitions/Product"
+    post:
+      operationId: getProducts
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            category_guid:
+              type: number
+            shop_guid:
+              type: number
+              description: "if category_guid and shop_guid is null return false"
+            type_product:
+              type: string
+              description: "example:\n  null: get all product\n  default: get normal product\
+                \ normal\n  featured: get product featured\n  voucher: get product\
+                \ voucher\n  ticket: get product ticket"
+            product_filter:
+              type: number
+              description: "infused product group"
+            get_all:
+              type: number
+              description: "0: false \n 1: true"
+            offset:
+              type: number
+            limit:
+              type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              products:
+                type: array
+                items:
+                  $ref: "#/definitions/Product"
+              categories:
+                type: array
+                items:
+                  $ref: "#/definitions/Category"

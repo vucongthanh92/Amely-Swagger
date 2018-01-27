@@ -7,15 +7,13 @@ paths:
       - name: "comment_guid"
         in: "query"
         required: true
-        type: "integer"
+        type: number
         description: "Global Unique IDentity"
       responses:
         200:
           description: "Status 200"
           schema:
             $ref: "#/definitions/DefaultResponse"
-      security:
-      - user_token: []
     post:
       operationId: getComments
       description: "get all comment of the requested feed_guid"
@@ -23,27 +21,25 @@ paths:
       - name: "post_guid"
         in: "query"
         required: true
-        type: "integer"
+        type: number
         description: "Global Unique IDentity"
       - name: "type"
         in: "query"
         required: true
-        type: "string"
+        type: string
       - name: "offset"
         in: "query"
         required: true
-        type: "number"
+        type: number
       - name: "limit"
         in: "query"
         required: true
-        type: "number"
+        type: number
       responses:
         200:
           description: "Status 200"
           schema:
             $ref: "#/definitions/DefaultResponse"
-      security:
-      - user_token: []
     put:
       operationId: createComment
       description: "insert a new comment"
@@ -60,18 +56,16 @@ paths:
           - "post_guid"
           properties:
             post_guid:
-              type: "string"
+              type: string
             comment:
-              type: "string"
+              type: string
             images:
-              type: "string"
+              type: string
       responses:
         200:
           description: "Status 200"
           schema:
             $ref: "#/definitions/DefaultResponse"
-      security:
-      - user_token: []
     delete:
       operationId: deleteComment
       description: "delete comment"
@@ -79,12 +73,10 @@ paths:
       - name: "guid"
         in: "query"
         required: true
-        type: "integer"
+        type: number
         description: "Global Unique IDentity"
       responses:
         200:
           description: "Status 200"
           schema:
             $ref: "#/definitions/DefaultResponse"
-      security:
-      - user_token: []
