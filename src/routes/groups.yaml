@@ -13,12 +13,7 @@ paths:
         200:
           description: "Status 200"
           schema:
-            type: object
-            properties:
-              result:
-                $ref: "#/definitions/DefaultResponse"
-              group:
-                $ref: "#/definitions/Group"
+            $ref: "#/definitions/Group"
     post:
       operationId: getGroups
       description: ""

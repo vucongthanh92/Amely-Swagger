@@ -31,6 +31,10 @@ definitions:
         type: boollean
       comments:
         type: number
+      item_type:
+        type: string
+      item_guid:
+        type: number
       title:
         type: string
       wallphoto:
@@ -38,7 +42,7 @@ definitions:
         items:
           type: string
       time_created:
-        type: any
+        type: number
       description:
         type: object
         properties:
@@ -99,19 +103,41 @@ definitions:
         type: "string"
   Group:
     type: "object"
-    required:
-    - "guid"
-    - "members"
-    - "name"
     properties:
       guid:
         type: number
-      name:
-        type: "string"
+      title:
+        type: string
       members:
-        type: "array"
+        type: array
         items:
           $ref: "#/definitions/User"
+      time_created:
+        type: number
+      owner_guid:
+        type: number
+      description:
+        type: string
+      type:
+        type: string
+      subtype:
+        type: string
+      membership:
+        type: string
+      membInvite:
+        type: string
+      groupMembership:
+        type: string
+      has_inventory:
+        type: string
+      thought:
+        type: string
+      inventory_items:
+        type: string
+      avatar:
+        type: "string"
+      cover:
+        type: "string"
   Product:
     type: object
     properties:
