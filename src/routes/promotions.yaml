@@ -1,0 +1,120 @@
+paths:
+  /promotions:
+    get:
+      operationId: getPromotion
+      parameters:
+      - name: promotion_guid
+        in: query
+        required: true
+        type: number
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              result:
+                type: array
+                items:
+                  $ref: "#/definitions/DefaultResponse"
+              product:
+                type: array
+                items:
+                  $ref: "#/definitions/Product"
+    post:
+      operationId: getPromotions
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            shop_guid:
+              type: number
+            offset:
+              type: number
+            limit:
+              type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              result:
+                type: array
+                items:
+                  $ref: "#/definitions/DefaultResponse"
+              products:
+                type: array
+                items:
+                  $ref: "#/definitions/DefaultResponse"
+    put:
+      operationId: createPromotion
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            title:
+              type: string
+            description:
+              type: string
+            time_start:
+              type: string
+            time_end:
+              type: string
+            status:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+    patch:
+      operationId: updatePromotion
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            promotion_guid:
+              type: number
+            title:
+              type: string
+            description:
+              type: string
+            time_start:
+              type: string
+            time_end:
+              type: string
+            status:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+    delete:
+      operationId: deletePromotion
+      description: ""
+      parameters:
+      - name: promotion_guid
+        in: query
+        required: true
+        type: number
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"

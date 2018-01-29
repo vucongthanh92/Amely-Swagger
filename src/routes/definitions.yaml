@@ -191,6 +191,21 @@ definitions:
         type: string
       images:
         type: string
+  Category:
+    type: object
+    properties:
+      title:
+        type: string
+      description:
+        type: string
+      enabled:
+        type: string
+      sort_order:
+        type: string
+      parent_guid:
+        type: string
+      logo:
+        type: string
   Item:
     type: object
     properties:
@@ -220,18 +235,22 @@ definitions:
         type: string
       stored_end:
         type: string
-  Category:
-    type: object
+  Shop:
+    type: "object"
+    required:
+    - "avatar"
+    - "background"
+    - "description"
+    - "guid"
+    - "name"
     properties:
-      title:
-        type: string
+      guid:
+        $ref: "#/definitions/GUID"
+      name:
+        type: "string"
       description:
-        type: string
-      enabled:
-        type: string
-      sort_order:
-        type: string
-      parent_guid:
-        type: string
-      logo:
-        type: string
+        type: "string"
+      avatar:
+        type: "string"
+      background:
+        type: "string"

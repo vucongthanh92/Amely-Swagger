@@ -1,0 +1,17 @@
+paths:
+  get:
+    operationId: getShop
+    parameters:
+    - name: "shop_guid"
+      in: "query"
+      required: true
+      type: "string"
+    - name: "store_guid"
+      in: "query"
+      required: true
+      type: "string"
+    responses:
+      200:
+        description: "Status 200"
+        schema:
+          $ref: "#/definitions/Shop"

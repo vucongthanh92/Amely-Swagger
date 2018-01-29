@@ -10,10 +10,6 @@ paths:
         required: true
         schema:
           type: "object"
-          required:
-          - "from_guid"
-          - "invitation_type"
-          - "to_guid"
           properties:
             invitation_type:
               type: "string"

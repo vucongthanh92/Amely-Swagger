@@ -22,6 +22,10 @@ paths:
                 type: array
                 items:
                   $ref: "#/definitions/Product"
+              categories:
+                type: array
+                items:
+                  $ref: "#/definitions/Category"
     post:
       operationId: getProducts
       consumes: []
@@ -47,7 +51,7 @@ paths:
               description: "infused product group"
             get_all:
               type: number
-              description: "0: false \n 1: true"
+              description: "0: loadmore \n 1: get all product"
             offset:
               type: number
             limit:
@@ -66,3 +70,193 @@ paths:
                 type: array
                 items:
                   $ref: "#/definitions/Category"
+    put:
+      operationId: createProduct
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            sku:
+              type: string
+            storage_duration:
+              type: string
+            title:
+              type: string
+            description:
+              type: string
+            manufacturer:
+              type: string
+            is_special:
+              type: number
+            voucher_category:
+              type: number
+            ticket_category:
+              type: number
+            tax:
+              type: number
+            price:
+              type: number
+            currency:
+              type: string
+            quantity:
+              type: number
+            weight:
+              type: number
+            product_group:
+              type: number
+            featured:
+              type: number
+            expiry:
+              type: number
+            duration:
+              type: number
+            begin_day:
+              type: string
+            end_day:
+              type: string
+            friendly_url:
+              type: string
+            origin:
+              type: string
+            order:
+              type: string
+            status:
+              type: string
+            ossn_photo:
+              type: array
+              items:
+                type: string
+            shop_category:
+              type: array
+              items:
+                type: string
+            market_category:
+              type: array
+              items:
+                type: string
+            custom_attribute_keys:
+              type: array
+              items:
+                type: string
+            custom_attribute_values:
+              type: array
+              items:
+                type: string
+            images:
+              type: array
+              items:
+                type: string
+            unit:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+    patch:
+      operationId: updateProduct
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            product_guid:
+              type: number
+            sku:
+              type: string
+            title:
+              type: string
+            description:
+              type: string
+            manufacturer:
+              type: string
+            is_special:
+              type: number
+            voucher_category:
+              type: number
+            ticket_category:
+              type: number
+            tax:
+              type: number
+            price:
+              type: number
+            currency:
+              type: string
+            quantity:
+              type: number
+            expiry:
+              type: number
+            duration:
+              type: number
+            begin_day:
+              type: string
+            end_day:
+              type: string
+            friendly_url:
+              type: string
+            origin:
+              type: string
+            order:
+              type: string
+            weight:
+              type: number
+            storage_duration:
+              type: number
+            product_group:
+              type: number
+            featured:
+              type: number
+            status:
+              type: string
+            ossn_photo:
+              type: array
+              items:
+                type: string
+            shop_category:
+              type: array
+              items:
+                type: string
+            market_category:
+              type: array
+              items:
+                type: string
+            custom_attribute_keys:
+              type: array
+              items:
+                type: string
+            custom_attribute_values:
+              type: array
+              items:
+                type: string
+            images:
+              type: array
+              items:
+                type: string
+            unit:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+    delete:
+      operationId: deleteProduct
+      description: ""
+      parameters:
+      - name: "product_guid"
+        in: "query"
+        required: true
+        type: number
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"

@@ -1,0 +1,16 @@
+paths:
+  /delete_image_product:
+    delete:
+      operationId: deleteImageProduct
+      description: ""
+      parameters:
+      - name: entities_guid
+        in: query
+        required: true
+        type: number
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
