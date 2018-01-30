@@ -8,6 +8,11 @@ paths:
         required: false
         type: number
         description: "Global Unique IDentity"
+      - name: "inventory_type"
+        in: "query"
+        required: false
+        type: string
+        description: "Global Unique IDentity"
       responses:
         200:
           description: "Status 200"
@@ -27,6 +32,7 @@ paths:
           - "limit"
           - "offset"
           - "owner_guid"
+          - "inventory_type"
           properties:
             offset:
               type: number
@@ -34,6 +40,8 @@ paths:
               type: number
             owner_guid:
               type: number
+            inventory_type:
+              type: string
             item_type:
               type: string
               description: "\"new\",\n\"wishlist\",\n\"expiry\",\n\"non_expiry\",\n\
@@ -43,4 +51,6 @@ paths:
         200:
           description: "Status 200"
           schema:
-            $ref: "#/definitions/Item"
+            type: array
+            items:
+              $ref: "#/definitions/Item"
