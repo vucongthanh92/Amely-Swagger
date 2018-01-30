@@ -271,12 +271,12 @@ definitions:
     - "name"
     properties:
       guid:
-        $ref: "#/definitions/GUID"
+        type: number
       name:
-        type: "string"
+        type: string
       description:
-        type: "string"
+        type: string
       avatar:
-        type: "string"
+        type: string
       background:
-        type: "string"
+        type: string
