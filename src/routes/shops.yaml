@@ -33,3 +33,38 @@ paths:
                 type: array
                 items:
                   $ref: "#/definitions/User"
+    patch:
+      operationId: updateShop
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            shop_guid:
+              type: number
+            name:
+              type: string
+            address:
+              type: string
+            phone:
+              type: string
+            introduction:
+              type: string
+            policy:
+              type: string
+            contact:
+              type: string
+            stores:
+              type: array
+              items:
+                $ref: "#/definitions/Store"
+            status:
+              type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"

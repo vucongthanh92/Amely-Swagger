@@ -1,0 +1,11 @@
+paths:
+  /cart:
+    get:
+      operationId: getCart
+      description: "Get the user cart"
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
