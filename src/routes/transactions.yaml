@@ -1,0 +1,19 @@
+paths:
+  /transaction:
+    get:
+      operationId: getTransactions
+      description: "Return transactions"
+      parameters:
+      - name: "transaction_type"
+        in: "query"
+        required: true
+        type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+                type: array
+                items:
+                  $ref: "#/definitions/Transaction"

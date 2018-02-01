@@ -1,0 +1,76 @@
+paths:
+  /offers:
+    post:
+      operationId: getOffers
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            offset:
+              type: number
+            limit:
+              type: number
+            target:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              type: array
+              items:
+                $ref: "#/definitions/Offer" 
+    get:
+      operationId: getOffer
+      parameters:
+      - name: "offer_guid"
+        in: "query"
+        required: true
+        type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Offer"
+    # put:
+    #   operationId: createOffer
+    #   consumes: []
+    #   parameters:
+    #   - name: "body"
+    #     in: "body"
+    #     required: true
+    #     schema:
+    #       type: "object"
+    #       properties:
+    #         from_guid:
+    #           type: number
+    #         to_guid:
+    #           type: number
+    #         invitation_type:
+    #           type: string
+    #   responses:
+    #     200:
+    #       description: "Status 200"
+    #       schema:
+    #         $ref: "#/definitions/DefaultResponse"
+    # delete:
+    #   operationId: deleteOffer
+    #   parameters:
+    #   - name: "from_guid"
+    #     in: "query"
+    #     type: number
+    #   - name: "to_guid"
+    #     in: "query"
+    #     type: number
+    #   - name: "invitation_type"
+    #     in: "query"
+    #     type: string
+    #   responses:
+    #     200:
+    #       description: "Status 200"
+    #       schema:
+    #         $ref: "#/definitions/DefaultResponse"

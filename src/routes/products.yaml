@@ -14,18 +14,14 @@ paths:
           schema:
             type: object
             properties:
-              result:
-                type: array
-                items:
-                  $ref: "#/definitions/DefaultResponse"
               product:
-                type: array
-                items:
-                  $ref: "#/definitions/Product"
+                $ref: "#/definitions/Product"
               categories:
                 type: array
                 items:
                   $ref: "#/definitions/Category"
+              shop:
+                $ref: "#/definitions/Shop"  
     post:
       operationId: getProducts
       consumes: []

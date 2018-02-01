@@ -16,3 +16,20 @@ paths:
           description: "Status 200"
           schema:
             $ref: "#/definitions/Shop"
+    post:
+      operationId: getFriendlyShop
+      description: "get all shop friendly"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              shops:
+                type: array
+                items:
+                  $ref: "#/definitions/Shop"
+              owners:
+                type: array
+                items:
+                  $ref: "#/definitions/User"

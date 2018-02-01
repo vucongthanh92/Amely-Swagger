@@ -1,0 +1,30 @@
+paths:
+  /events:
+    post:
+      operationId: getEvents
+      parameters:
+      - name: "body"
+        in: "body"
+        schema:
+          type: "object"
+          properties:
+            event_type:
+              type: string
+            offset:
+              type: number
+            limit:
+              type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              events:
+                type: array
+                items:
+                  $ref: "#/definitions/Event"
+              users:
+                type: array
+                items:
+                  $ref: "#/definitions/User"

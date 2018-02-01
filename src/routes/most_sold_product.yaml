@@ -1,0 +1,14 @@
+paths:
+  /most_sold_products:
+    get:
+      operationId: getProductsMostSold
+      description: "Return most sold product"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              type: array
+              items:
+                $ref: "#/definitions/Product" 

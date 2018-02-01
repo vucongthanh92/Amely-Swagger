@@ -1,0 +1,34 @@
+paths:
+  /categories:
+    post:
+      operationId: getCategories
+      description: "get all categories"
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            offset:
+              type: number
+            limit:
+              type: number
+            shop_guid:
+              type: number
+            type:
+              type: number
+              description: 2-vocher 3-tick default-market 
+            get_all:
+              type: number
+              description: 0-only get enabled 1-get all
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              type: array
+              items:
+                $ref: "#/definitions/Category" 
