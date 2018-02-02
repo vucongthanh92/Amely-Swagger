@@ -237,7 +237,7 @@ definitions:
       type:
         type: string
       time_created:
-        type: string
+        type: number
       title:
         type: string
       description:
@@ -247,7 +247,7 @@ definitions:
       inventory_type:
         type: string
       quantity:
-        type: string
+        type: number
       product_snapshot:
         $ref: "#/definitions/Product"
       expiry_type:
