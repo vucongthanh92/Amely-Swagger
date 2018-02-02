@@ -101,6 +101,8 @@ definitions:
         type: "string"
       cover:
         type: "string"
+      mood:
+        $ref: "#/definitions/Mood"
   Group:
     type: "object"
     properties:
