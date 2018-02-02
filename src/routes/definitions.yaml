@@ -228,7 +228,7 @@ definitions:
       images_entities:
         type: array
         items:
-          type: string    
+          type: string
   Item:
     type: object
     properties:
@@ -239,7 +239,7 @@ definitions:
       type:
         type: string
       time_created:
-        type: string
+        type: number
       title:
         type: string
       description:
@@ -249,7 +249,7 @@ definitions:
       inventory_type:
         type: string
       quantity:
-        type: string
+        type: number
       product_snapshot:
         $ref: "#/definitions/Product"
       expiry_type:
@@ -259,57 +259,57 @@ definitions:
       stored_end:
         type: string
       stored_expried:
-        type: boolean 
+        type: boolean
   Shop:
     type: "object"
     properties:
-      guid: 
+      guid:
         type: number
       time_created:
         type: number
-      owner_guid: 
+      owner_guid:
         type: number
-      description: 
+      description:
         type: string
-      title: 
+      title:
         type: string
       shop_phone:
         type: string
-      shop_address: 
+      shop_address:
         type: string
-      shop_bidn: 
+      shop_bidn:
         type: string
-      friendly_url: 
+      friendly_url:
         type: string
-      status: 
+      status:
         type: string
       owner_name:
         type: string
       owner_phone:
         type: string
-      owner_address: 
+      owner_address:
         type: string
       owner_ssn:
         type: string
-      cover: 
+      cover:
         type: string
       contact:
         type: string
       lat:
         type: number
-      lng: 
+      lng:
         type: number
-      introduce: 
+      introduce:
         type: string
-      featured: 
+      featured:
         type: string
       adjourn_price:
         type: number
       currency:
         type: string
-      shipping_method: 
+      shipping_method:
         type: string
-      avatar: 
+      avatar:
         type: string
       stores:
           type: array
@@ -318,73 +318,73 @@ definitions:
   Store:
     type: "object"
     properties:
-      guid: 
+      guid:
         type: number
       time_created:
         type: number
-      owner_guid: 
+      owner_guid:
         type: number
       description:
         type: string
       title:
         type: string
-      type: 
+      type:
         type: string
-      subtype: 
+      subtype:
         type: string
-      address: 
+      address:
         type: string
       phone:
         type: string
-      lat: 
+      lat:
         type: number
       lng:
         type: number
   Category:
     type: "object"
     properties:
-      guid: 
+      guid:
         type: number
       time_created:
         type: number
-      owner_guid: 
+      owner_guid:
         type: number
       description:
         type: string
       title:
         type: string
-      type: 
+      type:
         type: string
       subtype:
         type: string
-      friendly_url: 
+      friendly_url:
         type: string
       sort_order:
         type: string
-      enabled: 
+      enabled:
         type: string
-      parent_guid: 
+      parent_guid:
         type: string
       creator_guid:
-        type: string 
+        type: string
       total_product:
         type: string
-      logo: 
+      logo:
         type: string
   Event:
     type: "object"
     properties:
-      guid: 
+      guid:
         type: number
-      time_created: 
-        type: number  
-      description: 
+      time_created:
+        type: number
+      description:
         type: string
-      title: 
+      title:
         type: string
-      type: 
+      type:
         type: string
-      subtype: 
+      subtype:
         type: string
       start_date:
         type: number
@@ -392,99 +392,99 @@ definitions:
         type: number
       country:
         type: string
-      location: 
+      location:
         type: string
       template:
         type: string
       has_inventory:
-        type: string 
-      status: 
         type: string
-      members: 
+      status:
         type: string
-      invites: 
+      members:
+        type: string
+      invites:
         type: string
       friendly_url:
         type: string
       published:
         type: string
-      owner_user: 
+      owner_user:
         type: number
       creator:
         $ref: "#/definitions/Product"
-      avatar: 
+      avatar:
         type: string
-      cover: 
+      cover:
         type: string
-      members_accepted: 
+      members_accepted:
         type: string
-      invites_accepted: 
+      invites_accepted:
         type: string
   Transaction:
     type: "object"
     properties:
-      guid: 
+      guid:
         type: number
-      time_created: 
-        type: number  
+      time_created:
+        type: number
       owner_guid:
         type: number
       description:
         type: string
       title:
         type: string
-      type: 
+      type:
         type: string
       subtype:
         type: string
-      transaction_type: 
+      transaction_type:
         type: string
-      status: 
+      status:
         type: string
-      currency: 
+      currency:
         type: string
       quantity:
         type: number
-      related_guid: 
+      related_guid:
         type: number
   Offer:
     type: "object"
     properties:
-      guid: 
+      guid:
         type: number
-      time_created: 
-        type: number  
-      description: 
-        type: string  
-      title: 
-        type: string
-      type: 
-        type: string
-      subtype: 
-        type: string
-      target: 
-        type: string
-      duration: 
+      time_created:
         type: number
-      quantity: 
+      description:
+        type: string
+      title:
+        type: string
+      type:
+        type: string
+      subtype:
+        type: string
+      target:
+        type: string
+      duration:
         type: number
-      offer_type: 
+      quantity:
+        type: number
+      offer_type:
         type: string
       location_lat:
         type: number
-      location_lng: 
+      location_lng:
         type: number
-      expried: 
+      expried:
         type: number
-      status: 
+      status:
         type: string
-      so_guid: 
+      so_guid:
         type: string
-      offered: 
+      offered:
         type: boolean
-      current_time: 
+      current_time:
         type: number
-      time_end: 
+      time_end:
         type: number
       bookmarked:
         type: string
@@ -497,23 +497,23 @@ definitions:
   CounterOffer:
     type: "object"
     properties:
-      guid: 
+      guid:
         type: number
-      time_created: 
-        type: number  
-      description: 
-        type: string
-      title: 
-        type: string
-      type: 
-        type: string
-      subtype: 
-        type: string
-      status: 
-        type: string
-      quantity: 
+      time_created:
         type: number
-      so_guid: 
+      description:
+        type: string
+      title:
+        type: string
+      type:
+        type: string
+      subtype:
+        type: string
+      status:
+        type: string
+      quantity:
+        type: number
+      so_guid:
         type: string
       product_snapshot:
         $ref: "#/definitions/Product"
@@ -521,3 +521,90 @@ definitions:
         $ref: "#/definitions/User"
       offer:
         $ref: "#/definitions/Offer"
+  Cart_item:
+    type: "object"
+    required:
+    - "product"
+    - "quantity"
+    - "subtotal"
+    properties:
+      product:
+        $ref: "#/definitions/Product"
+      quantity:
+        type: number
+      subtotal:
+        type: number
+  Business:
+    type: object
+    properties:
+      guid:
+        type: string
+      time_created:
+        type: string
+      description:
+        type: string
+      title:
+        type: string
+      type:
+        type: string
+      subtype:
+        type: string
+      category:
+        type: string
+      website:
+        type: string
+      phone:
+        type: string
+      address:
+        type: string
+      photo_entity_guid:
+        type: string
+      cover_entity_guid:
+        type: string
+      cover_top:
+        type: string
+      cover_left:
+        type: string
+      avatar:
+        type: string
+      cover:
+        type: string
+      owner:
+        type: string
+      follow:
+        type: string
+      followed:
+        type: string
+      thought:
+        type: string
+  Gift:
+    type: object
+    properties:
+      guid:
+        type: number
+      time_created:
+        type: number
+      description:
+        type: string
+      title:
+        type: string
+      type:
+        type: string
+      to_type:
+        type: string
+      item_quantity:
+        type: number
+      status:
+        type: string
+      owner:
+        type: object
+      to_user:
+        $ref: "#/definitions/User"
+      to_group:
+        $ref: "#/definitions/Group"
+      to_event:
+        $ref: "#/definitions/Event"
+      to_business:
+        $ref: "#/definitions/Business"
+      item:
+        $ref: "#/definitions/Item"

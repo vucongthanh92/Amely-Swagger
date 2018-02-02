@@ -1,0 +1,92 @@
+paths:
+  /gift:
+    get:
+      operationId: getGift
+      parameters:
+      - name: gift_guid
+        in: query
+        required: true
+        type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Gift"
+    post:
+      operationId: getGifts
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            owner_guid:
+              type: number
+            type:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Gift"
+    put:
+      operationId: createGift
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: object
+          properties:
+            from_guid:
+              type: number
+            from_type:
+              type: string
+              description: "\"user\",\"group\",\"event\",\"business\""
+            to_guid:
+              type: number
+            to_type:
+              type: string
+              description: "\"user\",\"group\",\"event\",\"business\""
+            item_guid:
+              type: number
+            item_quantity:
+              type: number
+            message:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+    patch:
+      operationId: acceptGift
+      consumes: []
+      parameters:
+      - name: "gift_guid"
+        in: "body"
+        required: true
+        schema:
+          type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+    delete:
+      operationId: rejectGift
+      parameters:
+      - name: "gift_guid"
+        in: "query"
+        required: true
+        type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
