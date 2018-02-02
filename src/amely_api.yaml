@@ -3,9 +3,8 @@ info:
   version: "0.0.1"
   title: Amely API
 host: dev.ezqua.com
-basePath: /ws/v1/
+basePath: /ws/v1
 schemes:
-  - http
   - https
 consumes:
   - application/json

@@ -523,17 +523,21 @@ definitions:
         $ref: "#/definitions/Offer"
   Cart_item:
     type: "object"
-    required:
-    - "product"
-    - "quantity"
-    - "subtotal"
     properties:
-      product:
+      products:
         $ref: "#/definitions/Product"
-      quantity:
+      total:
+        type: number
+      tax:
         type: number
       subtotal:
         type: number
+  Cart:
+    type: object
+    properties:
+      guid: number
+      quantity: number
+      price: number
   Business:
     type: object
     properties:
@@ -608,3 +612,16 @@ definitions:
         $ref: "#/definitions/Business"
       item:
         $ref: "#/definitions/Item"
+  Manufacturer:
+    type: object
+    properties:
+      guid:
+        type: number
+      title:
+        type: string
+      description:
+        type: string
+      featured:
+        type: string
+      logo:
+        type: string

@@ -1,5 +1,19 @@
 paths:
   /categories:
+    get:
+      operationId: getCategory
+      description: ""
+      parameters:
+      - name: category_guid
+        in: query
+        required: true
+        type: number
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Category"
     post:
       operationId: getCategories
       description: "get all categories"
@@ -19,7 +33,7 @@ paths:
               type: number
             type:
               type: number
-              description: 2-vocher 3-tick default-market 
+              description: 2-vocher 3-tick default-market
             get_all:
               type: number
               description: 0-only get enabled 1-get all
@@ -31,4 +45,80 @@ paths:
             properties:
               type: array
               items:
-                $ref: "#/definitions/Category" 
+                $ref: "#/definitions/Category"
+    put:
+      operationId: createCategory
+      description: ""
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            title:
+              type: string
+            description:
+              type: string
+            friendly_url:
+              type: string
+            sort_order:
+              type: number
+            enabled:
+              type: string
+            parent_guid:
+              type: number
+            image:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+    patch:
+      operationId: updateCategory
+      description: ""
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            category_guid:
+              type: number
+            title:
+              type: string
+            description:
+              type: string
+            friendly_url:
+              type: string
+            sort_order:
+              type: number
+            enabled:
+              type: string
+            parent_guid:
+              type: number
+            image:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+    delete:
+      operationId: deleteCategory
+      description: "delete a category"
+      parameters:
+      - name: category_guid
+        in: query
+        required: true
+        type: number
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"

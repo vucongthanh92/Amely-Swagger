@@ -8,4 +8,84 @@ paths:
         200:
           description: "Status 200"
           schema:
+            type: object
+            properties:
+              cart:
+                type: array
+                items:
+                  $ref: "#/definitions/Cart"
+    post:
+      operationId: getCarts
+      description: "example request:\n  {\n    \"items\":[\n {\"guid\":380,\"\
+        quantity\":5},\n {\"guid\":382,\"quantity\":5}\n ]\n}"
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            items:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              cart:
+                type: array
+                items:
+                  $ref: "#/definitions/Cart_item"
+    put:
+      operationId: createCart
+      description: "Put new products into the user's cart"
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            guid:
+              type: number
+            quantity:
+              type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+    patch:
+      operationId: updateCart
+      description: "Update the user's cart's items"
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            guid:
+              type: number
+            quantity:
+              type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+    delete:
+      operationId: deleteCart
+      description: ""
+      parameters:
+      - name: guid
+        in: query
+        required: true
+        type: number
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
             $ref: "#/definitions/DefaultResponse"
