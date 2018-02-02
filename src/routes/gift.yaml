@@ -68,14 +68,11 @@ paths:
       operationId: acceptGift
       consumes: []
       parameters:
-      - name: "body"
+      - name: "gift_guid"
         in: "body"
         required: true
         schema:
-          type: "object"
-          properties:
-            gift_guid:
-              type: number
+          type: number
       responses:
         200:
           description: "Status 200"
