@@ -1,0 +1,11 @@
+paths:
+  /product_categories:
+    get:
+      operationId: getProductCategory
+      description: "get all category"
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Category"
