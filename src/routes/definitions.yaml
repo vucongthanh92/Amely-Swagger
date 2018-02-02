@@ -579,9 +579,9 @@ definitions:
     type: object
     properties:
       guid:
-        type: string
+        type: number
       time_created:
-        type: string
+        type: number
       description:
         type: string
       title:
@@ -591,28 +591,18 @@ definitions:
       to_type:
         type: string
       item_quantity:
-        type: string
+        type: number
       status:
         type: string
       owner:
         type: object
       to_user:
-        type: object
-        items:
-          $ref: "#/definitions/User"
+        $ref: "#/definitions/User"
       to_group:
-        type: object
-        items:
-          $ref: "#/definitions/Group"
+        $ref: "#/definitions/Group"
       to_event:
-        type: object
-        items:
-          $ref: "#/definitions/Event"
+        $ref: "#/definitions/Event"
       to_business:
-        type: object
-        items:
-          $ref: "#/definitions/Business"
+        $ref: "#/definitions/Business"
       item:
-        type: object
-        items:
-          $ref: "#/definitions/Item"
+        $ref: "#/definitions/Item"

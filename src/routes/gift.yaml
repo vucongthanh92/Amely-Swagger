@@ -30,7 +30,9 @@ paths:
         200:
           description: "Status 200"
           schema:
-            $ref: "#/definitions/Gift"
+            type: array
+            items:
+              $ref: "#/definitions/Gift"
     put:
       operationId: createGift
       consumes: []
@@ -63,7 +65,7 @@ paths:
           schema:
             $ref: "#/definitions/DefaultResponse"
     patch:
-      operationId: updateGift
+      operationId: acceptGift
       consumes: []
       parameters:
       - name: "body"
@@ -80,7 +82,7 @@ paths:
           schema:
             $ref: "#/definitions/DefaultResponse"
     delete:
-      operationId: deleteGift
+      operationId: rejectGift
       parameters:
       - name: "gift_guid"
         in: "query"
