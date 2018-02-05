@@ -1,0 +1,111 @@
+paths:
+  /orders:
+    get:
+      operationId: getOrder
+      description: ""
+      parameters:
+      - name: order_guid
+        in: query
+        required: true
+        type: number
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Order"
+    post:
+      operationId: getOrders
+      description: ""
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              shipping_methods:
+                $ref: "#/definitions/Shipping_methods"
+              payment_methods:
+                $ref: "#/definitions/Payment_methods"
+              options:
+                $ref: "#/definitions/Options"
+    put:
+      operationId: createOrder
+      description: "\"fullname\": \"admin\",\n\"phone\": \"01649692858\",\n\"address\"\
+        : \"49/2/2M\",\n\"province\": \"04\",\n\"district\": \"003\",\n\"ward\": \"\
+        00004\",\n\"note\": \"test\",\n\"payment\": \"ngl/creditcard\",\n\"bankcode\"\
+        : \"VISA\",\n\"total\": \"898\",\n\"shipping_fullname\": \"admin\",\n\"shipping_phone\"\
+        : \"01649692858\",\n\"shipping_address\": \"49/2/2M\",\n\"shipping_province\"\
+        : \"04\",\n\"shipping_district\": \"003\",\n\"shipping_ward\": \"00004\",\n\
+        \"shipping_note\": \"thich gi cung dc\",\n\"shipping_method\": \"sq/storage\"\
+        ,\n\"shipping_fee\": \"0\"\n\"to_guid\": \"13254\""
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            fullname:
+              type: string
+            phone:
+              type: string
+            address:
+              type: string
+            province:
+              type: string
+            district:
+              type: string
+            ward:
+              type: string
+            note:
+              type: string
+            payment:
+              type: string
+            shipping_fullname:
+              type: string
+            shipping_phone:
+              type: string
+            shipping_address:
+              type: string
+            shipping_province:
+              type: string
+            shipping_district:
+              type: string
+            shipping_ward:
+              type: string
+            shipping_note:
+              type: string
+            shipping_method:
+              type: string
+            shipping_fee:
+              type: string
+            to_guid:
+              type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+    patch:
+      operationId: updateOrder
+      description: "Update a order"
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            guid:
+              type: number
+            status:
+              type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"

@@ -32,8 +32,6 @@ paths:
         required: true
         schema:
           type: "object"
-          required:
-          - "feeds_type"
           properties:
             feeds_type:
               type: string
@@ -76,13 +74,6 @@ paths:
         required: true
         schema:
           type: "object"
-          required:
-          - "content"
-          - "friends"
-          - "images"
-          - "location"
-          - "mood"
-          - "privacy"
           properties:
             content:
               type: string
@@ -116,14 +107,6 @@ paths:
         required: true
         schema:
           type: "object"
-          required:
-          - "content"
-          - "friends"
-          - "images"
-          - "location"
-          - "mood"
-          - "post_guid"
-          - "privacy"
           properties:
             post_guid:
               type: number

@@ -630,27 +630,130 @@ definitions:
   Photo:
     type: object
     properties:
-      guid: 
+      guid:
         type: number
       owner_guid:
         type: number
-      type: 
+      type:
         type: string
       subtype:
         type: string
-      time_created: 
+      time_created:
         type: number
       time_updated:
         type: number
-      permission: 
+      permission:
         type: number
       active:
         type: number
-      id: 
+      id:
         type: number
-      value: 
+      value:
         type: string
       title:
         type: string
-      description: 
+      description:
+  Order_item:
+    type: object
+    properties:
+      qty:
+        type: string
+      items:
+        $ref: "#/definitions/Product"
+  Order:
+    type: object
+    properties:
+      owner_guid:
+        type: string
+      process_status:
+        type: string
+      shipping_method:
+        type: string
+      payment_method:
+        type: string
+      order_item:
+        $ref: "#/definitions/Order_item"
+  SQ_type:
+    type: object
+    properties:
+      filename:
+        type: string
+      component:
+        type: string
+      classname:
+        type: string
+      displayname:
+        type: string
+      capacity:
+        type: array
+        items:
+          type: string
+  Shipping_methods:
+    type: object
+    properties:
+      sq/storage:
+        $ref: "#/definitions/SQ_type"
+      sq/pickup:
+        $ref: "#/definitions/SQ_type"
+      sq/standard:
+        $ref: "#/definitions/SQ_type"
+      sq/express:
+        $ref: "#/definitions/SQ_type"
+  Payment_methods:
+    type: object
+    properties:
+      paypal/standard:
+        $ref: "#/definitions/SQ_type"
+      ngl/atm:
+        $ref: "#/definitions/SQ_type"
+      ngl/creditcard:
+        $ref: "#/definitions/SQ_type"
+      onepay/opatm:
+        $ref: "#/definitions/SQ_type"
+      onepay/opcreditcard:
+        $ref: "#/definitions/SQ_type"
+      sq/wallet:
+        $ref: "#/definitions/SQ_type"
+  Bankcode:
+    type: object
+    properties:
+      input_type:
+        type: string
+      options:
+        type: array
+        items:
+          type: string
+      required:
+        type: string
+  Options:
+    type: object
+    properties:
+      paypal/standard:
+        type: string
+      ngl/atm:
+        $ref: "#/definitions/Bankcode"
+      ngl/creditcard:
+        $ref: "#/definitions/Bankcode"
+      onepay/opatm:
+        $ref: "#/definitions/Bankcode"
+      onepay/opcreditcard:
+        $ref: "#/definitions/Bankcode"
+      sq/wallet:
+        type: string
+  Wallet:
+    type: object
+    properties:
+      guid:
+        type: string
+      owner_guid:
+        type: string
+      card_number:
+        type: string
+      balance:
+        type: string
+      currency:
+        type: string
+      point:
+        type: string
+      accumulated_point:
         type: string

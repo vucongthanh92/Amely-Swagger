@@ -1,0 +1,76 @@
+paths:
+  /wallet:
+    get:
+      operationId: getWallet
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Wallet"
+    post:
+      operationId: actionsWallet
+      description: "action, step\n\nswitch(action)\n  case: \"deposit\":\n    switch(step)\n\
+        \ case \"confirm\":\n        request params: null\n      case \"payment\"\
+        :\n request params: payment_method\n      case \"payment_option\":\n\
+        \ request params: payment_method,bankcode\n\n  case: \"withdrawal\"\
+        :\n    switch(step)\n      case \"confirm\":\n        request params: null\n\
+        \      case \"payment\":\n        request params: payment_method\n      case\
+        \ \"payment_option\":\n        if payment_method == paypal {\n          request\
+        \ params:\n            payment_method,\n            paypal_email,\n      \
+        \      note,\n            amount\n        } else {\n          request params:\n\
+        \ payment_method,\n            note,\n            bank_branch_name,\n\
+        \ bank_name,\n            bank_account_name,\n            bank_account_number,\n\
+        \ amount\n  }"
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            action:
+              type: string
+              example: "\"deposit\",\"withdrawal\"\n"
+            amount:
+              type: string
+            step:
+              type: string
+              example: "\"confirm\",\"payment\",\"payment_option\"\n"
+            payment_method:
+              type: string
+            paypal_email:
+              type: string
+            note:
+              type: string
+            bank_branch_name:
+              type: string
+            bank_name:
+              type: string
+            bank_account_name:
+              type: string
+            bank_account_number:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Wallet"
+    put:
+      operationId: createWallet
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            currency:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"

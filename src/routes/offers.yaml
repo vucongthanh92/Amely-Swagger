@@ -1,5 +1,17 @@
 paths:
   /offers:
+    get:
+      operationId: getOffer
+      parameters:
+      - name: "offer_guid"
+        in: "query"
+        required: true
+        type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Offer"
     post:
       operationId: getOffers
       parameters:
@@ -23,54 +35,83 @@ paths:
             properties:
               type: array
               items:
-                $ref: "#/definitions/Offer" 
-    get:
-      operationId: getOffer
+                $ref: "#/definitions/Offer"
+    put:
+      operationId: createOffer
+      consumes: []
       parameters:
-      - name: "offer_guid"
-        in: "query"
+      - name: body
+        in: body
         required: true
-        type: number
+        schema:
+          type: object
+          properties:
+            item_guid:
+              type: number
+            offer_type:
+              type: string
+              example: "\"normal\",\"random\",\"giveaway\"\n"
+            random_expiration:
+              type: boolean
+              description: "offer_type = random thi moi true/flase\ntrue lay thoi\
+                \ gian duration\nfalse ko."
+            giveaway_approval:
+              type: boolean
+              description: "offer_type = giveaway\ntrao doi mien phi co 2 che' do\n\
+                false: ai vo trc dc huong truoc\ntrue: set cho ai nhan ai ko"
+            target:
+              type: string
+              example: "\"public\",\"friends\",\"location\"\n"
+            location_lat:
+              type: string
+            location_lng:
+              type: string
+            duration:
+              type: number
+            note:
+              type: string
+            quantity:
+              type: number
+            limit_counter:
+              type: string
+          description: "switch(offer_type)\n  case \"random\"\n    request: random_expiration\n\
+            \  case \"giveaway\"\n    request: giveaway_approval"
       responses:
         200:
           description: "Status 200"
           schema:
-            $ref: "#/definitions/Offer"
-    # put:
-    #   operationId: createOffer
-    #   consumes: []
-    #   parameters:
-    #   - name: "body"
-    #     in: "body"
-    #     required: true
-    #     schema:
-    #       type: "object"
-    #       properties:
-    #         from_guid:
-    #           type: number
-    #         to_guid:
-    #           type: number
-    #         invitation_type:
-    #           type: string
-    #   responses:
-    #     200:
-    #       description: "Status 200"
-    #       schema:
-    #         $ref: "#/definitions/DefaultResponse"
-    # delete:
-    #   operationId: deleteOffer
-    #   parameters:
-    #   - name: "from_guid"
-    #     in: "query"
-    #     type: number
-    #   - name: "to_guid"
-    #     in: "query"
-    #     type: number
-    #   - name: "invitation_type"
-    #     in: "query"
-    #     type: string
-    #   responses:
-    #     200:
-    #       description: "Status 200"
-    #       schema:
-    #         $ref: "#/definitions/DefaultResponse"
+            $ref: "#/definitions/DefaultResponse"
+    patch:
+      operationId: updateOffer
+      description: ""
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            offer_guid:
+              type: number
+            counter_offer_guid:
+              type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+    delete:
+      operationId: deleteOffer
+      description: ""
+      parameters:
+      - name: offer_guid
+        in: query
+        required: true
+        type: number
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"

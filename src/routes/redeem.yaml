@@ -1,0 +1,50 @@
+paths:
+  /redeem:
+    get:
+      operationId: getRedeem
+      description: ""
+      parameters:
+      - name: redeem_code
+        in: query
+        required: true
+        type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Item"
+    post:
+      operationId: postRedeem
+      description: ""
+      parameters:
+      - name: redeem_code
+        in: query
+        required: true
+        type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+    put:
+      operationId: createRedeem
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            item_guid:
+              type: number
+            owner_guid:
+              type: number
+            quantity_redeem:
+              type: number
+          description: "Submit properties to be changed"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"

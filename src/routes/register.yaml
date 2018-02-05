@@ -1,0 +1,39 @@
+paths:
+  /register:
+    put:
+      operationId: register
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            username:
+              type: string
+            firstname:
+              type: string
+            lastname:
+              type: string
+            email:
+              type: string
+            email_re:
+              type: string
+            password:
+              type: string
+            password_re:
+              type: string
+            mobilelogin:
+              type: string
+            birthdate:
+              type: string
+            gender:
+              type: string
+              example: "\"male\",\"female\"\n"
+          description: "Submit properties to be changed\nfields required true"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"

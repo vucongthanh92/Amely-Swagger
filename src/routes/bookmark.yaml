@@ -1,26 +1,20 @@
 paths:
-  /counter_offers:
-    get:
-      operationId: getCounterOffer
-      parameters:
-      - name: "counter_offer_guid"
-        in: "query"
-        required: true
-        type: number
-      responses:
-        200:
-          description: "Status 200"
-          schema:
-            $ref: "#/definitions/CounterOffer"
+  /bookmark:
     post:
-      operationId: getCounterOffers
+      operationId: getBookmarks
+      description: ""
+      consumes: []
       parameters:
-      - name: "body"
-        in: "body"
+      - name: body
+        in: body
         required: true
         schema:
-          type: "object"
+          type: object
           properties:
+            owner_guid:
+              type: number
+            bookmark_type:
+              type: string
             offset:
               type: number
             limit:
@@ -31,11 +25,15 @@ paths:
           schema:
             type: object
             properties:
-              type: array
-              items:
-                $ref: "#/definitions/CounterOffer"
+              offer:
+                type: array
+                items:
+                  type: string
+              users:
+                $ref: "#/definitions/User"
     put:
-      operationId: createCounterOffer
+      operationId: createBookmark
+      description: ""
       consumes: []
       parameters:
       - name: body
@@ -44,13 +42,9 @@ paths:
         schema:
           type: object
           properties:
-            offer_guid:
-              type: number
             item_guid:
               type: number
-            quantity:
-              type: number
-            note:
+            bookmark_type:
               type: string
       responses:
         200:
@@ -58,13 +52,12 @@ paths:
           schema:
             $ref: "#/definitions/DefaultResponse"
     delete:
-      operationId: deleteCounterOffer
+      operationId: deleteBookmark
       parameters:
-      - name: counter_offer_guid
+      - name: bookmark_type
         in: query
         required: true
-        type: number
-        description: "Global Unique IDentity"
+        type: string
       responses:
         200:
           description: "Status 200"
