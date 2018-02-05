@@ -625,3 +625,30 @@ definitions:
         type: string
       logo:
         type: string
+  Photo:
+    type: object
+    properties:
+      guid: 
+        type: number
+      owner_guid:
+        type: number
+      type: 
+        type: string
+      subtype:
+        type: string
+      time_created: 
+        type: number
+      time_updated:
+        type: number
+      permission: 
+        type: number
+      active:
+        type: number
+      id: 
+        type: number
+      value: 
+        type: string
+      title:
+        type: string
+      description: 
+        type: string

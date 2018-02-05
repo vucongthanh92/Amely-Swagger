@@ -72,7 +72,10 @@ paths:
         in: "body"
         required: true
         schema:
-          type: number
+          type: object
+          properties:
+            gift_guid:
+              type: number
       responses:
         200:
           description: "Status 200"

@@ -1,0 +1,11 @@
+paths:
+  /album:
+    get:
+      operationId: getAlbums
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Photo"
