@@ -1,0 +1,22 @@
+paths:
+  /group_vote:
+    put:
+      operationId: voteGroup
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: object
+          properties:
+            vote_type:
+              type: string
+              description: "\"yes\",\"no\",\"cancel\""
+            group_guid:
+              type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"

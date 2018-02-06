@@ -1,0 +1,33 @@
+paths:
+  /givelist:
+    put:
+      operationId: createGiveList
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          required:
+          - item_guid
+          properties:
+            item_guid:
+              type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+    delete:
+      operationId: deleteGiveList
+      parameters:
+      - name: item_guid
+        in: query
+        required: true
+        type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"

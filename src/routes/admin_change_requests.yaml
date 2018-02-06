@@ -1,0 +1,33 @@
+paths:
+  /admin_change_requests:
+    put:
+      operationId: changeAdmin
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            user_poll:
+              type: number
+            group_guid:
+              type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+    delete:
+      operationId: deletePollCandidate
+      parameters:
+      - name: poll_guid
+        in: query
+        required: true
+        type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"

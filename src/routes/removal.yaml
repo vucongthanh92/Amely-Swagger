@@ -1,0 +1,22 @@
+paths:
+  /removal:
+    put:
+      operationId: removal
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            to_guid:
+              type: number
+            type:
+              type: string
+              example: "\"user\",\"group\",\"event\""
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
