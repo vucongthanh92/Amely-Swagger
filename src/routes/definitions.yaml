@@ -148,6 +148,8 @@ definitions:
         type: number
       key:
         type: string
+      chat_type:
+        type: string
   Product:
     type: object
     properties:
