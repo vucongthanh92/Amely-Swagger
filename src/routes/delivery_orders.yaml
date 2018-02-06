@@ -1,0 +1,69 @@
+paths:
+  /delivery_orders:
+    get:
+      operationId: getDO
+      parameters:
+      - name: do_guid
+        in: query
+        required: true
+        type: number
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Delivery_order"
+    post:
+      operationId: getDOs
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              dos:
+                $ref: "#/definitions/Delivery_order"
+              shops:
+                $ref: "#/definitions/Shop"
+    put:
+      operationId: createDO
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            step:
+              type: string
+            shipping_fullname:
+              type: string
+            shipping_phone:
+              type: string
+            shipping_address:
+              type: string
+            shipping_province:
+              type: string
+            shipping_district:
+              type: string
+            shipping_ward:
+              type: string
+            shipping_note:
+              type: string
+            shipping_method:
+              type: string
+            shipping_fee:
+              type: string
+            item:
+              type: string
+            quantity:
+              type: number
+            shop_guid:
+              type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"

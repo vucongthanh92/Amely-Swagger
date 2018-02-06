@@ -1,0 +1,23 @@
+paths:
+  /upload_cover:
+    patch:
+      operationId: upload_cover
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            owner_guid:
+              type: number
+            cover_type:
+              type: string
+            images:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"

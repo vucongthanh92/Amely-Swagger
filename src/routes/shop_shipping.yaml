@@ -1,0 +1,50 @@
+paths:
+  /shop_shipping:
+    get:
+      operationId: getShopShipping
+      parameters:
+      - name: order_guid
+        in: query
+        type: number
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              product:
+                type: array
+                items:
+                  $ref: "#/definitions/Product"
+              order:
+                $ref: "#/definitions/ShippingInfo"
+              delivery_info:
+                $ref: "#/definitions/DeliveryInfo"
+    post:
+      operationId: getShopShippings
+      description: "get list shop order"
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            shop_guid:
+              type: number
+            shipping_filter:
+              type: string
+              description: "\"sent\",\"new\",\"complete\",\"processing\""
+            offset:
+              type: number
+            page_limit:
+              type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: array
+              items:
+                $ref: "#/definitions/ShopShipping"

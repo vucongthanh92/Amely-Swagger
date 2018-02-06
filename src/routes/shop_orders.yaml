@@ -1,0 +1,52 @@
+paths:
+  /shop_orders:
+    get:
+      operationId: getShopOrder
+      parameters:
+      - name: order_guid
+        in: query
+        type: number
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              product:
+                type: array
+                items:
+                  $ref: "#/definitions/Product"
+              order:
+                $ref: "#/definitions/OrderInfo"
+              delivery_info:
+                $ref: "#/definitions/DeliveryInfo"
+              payment_info:
+                $ref: "#/definitions/PaymentInfo"
+    post:
+      operationId: getShopOrders
+      description: "get list shop order"
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            shop_guid:
+              type: number
+            order_filter:
+              type: string
+              description: "\"processing\",\"completed\",\"failed\""
+            offset:
+              type: number
+            page_limit:
+              type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: array
+              items:
+                $ref: "#/definitions/ShopOrder"

@@ -1,0 +1,19 @@
+paths:
+  /change_phone:
+    patch:
+      operationId: change_phone
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            new_phone:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"

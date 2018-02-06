@@ -1,0 +1,23 @@
+paths:
+  /join:
+    put:
+      operationId: join
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            from_guid:
+              type: number
+            to_guid:
+              type: number
+            join_type:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"

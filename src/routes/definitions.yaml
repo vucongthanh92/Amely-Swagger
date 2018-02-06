@@ -71,36 +71,36 @@ definitions:
       mood_icon:
         type: string
       guid:
-        type: integer
+        type: number
   User:
-    type: "object"
+    type: object
     properties:
       guid:
         type: number
       username:
-        type: "string"
+        type: string
       last_name:
-        type: "string"
+        type: string
       first_name:
-        type: "string"
+        type: string
       email:
-        type: "string"
+        type: string
       fullname:
-        type: "string"
+        type: string
       birthdate:
-        type: "string"
+        type: string
       gender:
-        type: "string"
+        type: string
       mobilelogin:
-        type: "string"
+        type: string
       usercurrency:
-        type: "string"
+        type: string
       address:
-        type: "string"
+        type: string
       avatar:
-        type: "string"
+        type: string
       cover:
-        type: "string"
+        type: string
       mood:
         $ref: "#/definitions/Mood"
   Group:
@@ -139,9 +139,9 @@ definitions:
       inventory_items:
         type: string
       avatar:
-        type: "string"
+        type: string
       cover:
-        type: "string"
+        type: string
       last_message:
         type: string
       last_time:
@@ -152,9 +152,9 @@ definitions:
     type: object
     properties:
       guid:
-        type: string
+        type: number
       owner_guid:
-        type: string
+        type: number
       type:
         type: string
       time_created:
@@ -166,15 +166,15 @@ definitions:
       subtype:
         type: string
       tax:
-        type: string
+        type: number
       price:
-        type: string
+        type: number
       quantity:
-        type: string
+        type: number
       weight:
-        type: string
+        type: number
       expiry_type:
-        type: string
+        type: number
       friendly_url:
         type: string
       currency:
@@ -198,15 +198,15 @@ definitions:
       custom_attributes:
         type: string
       number_sold:
-        type: string
+        type: number
       download:
-        type: string
+        type: number
       featured:
-        type: string
+        type: number
       sale_price:
-        type: string
+        type: number
       duration:
-        type: string
+        type: number
       begin_day:
         type: string
       end_day:
@@ -216,11 +216,11 @@ definitions:
       approved:
         type: string
       current_snapshot:
-        type: string
+        type: number
       voucher_category:
-        type: string
+        type: number
       ticket_category:
-        type: string
+        type: number
       shop_categories:
         type: string
       market_categories:
@@ -237,9 +237,9 @@ definitions:
     type: object
     properties:
       guid:
-        type: string
+        type: number
       owner_guid:
-        type: string
+        type: number
       type:
         type: string
       time_created:
@@ -265,7 +265,7 @@ definitions:
       stored_expried:
         type: boolean
   Shop:
-    type: "object"
+    type: object
     properties:
       guid:
         type: number
@@ -320,7 +320,7 @@ definitions:
           items:
             $ref: "#/definitions/Store"
   Store:
-    type: "object"
+    type: object
     properties:
       guid:
         type: number
@@ -345,7 +345,7 @@ definitions:
       lng:
         type: number
   Category:
-    type: "object"
+    type: object
     properties:
       guid:
         type: number
@@ -372,11 +372,11 @@ definitions:
       creator_guid:
         type: string
       total_product:
-        type: string
+        type: number
       logo:
         type: string
   Event:
-    type: "object"
+    type: object
     properties:
       guid:
         type: number
@@ -427,7 +427,7 @@ definitions:
       invites_accepted:
         type: string
   Transaction:
-    type: "object"
+    type: object
     properties:
       guid:
         type: number
@@ -454,7 +454,7 @@ definitions:
       related_guid:
         type: number
   Offer:
-    type: "object"
+    type: object
     properties:
       guid:
         type: number
@@ -485,7 +485,7 @@ definitions:
       status:
         type: string
       so_guid:
-        type: string
+        type: number
       offered:
         type: boolean
       current_time:
@@ -501,7 +501,7 @@ definitions:
       counter_offers:
         $ref: "#/definitions/CounterOffer"
   CounterOffer:
-    type: "object"
+    type: object
     properties:
       guid:
         type: number
@@ -520,7 +520,7 @@ definitions:
       quantity:
         type: number
       so_guid:
-        type: string
+        type: number
       product_snapshot:
         $ref: "#/definitions/Product"
       owner:
@@ -770,3 +770,154 @@ definitions:
         type: string
       guid:
         type: number
+  OrderInfo:
+    type: object
+    properties:
+      currency:
+        type: string
+      without_tax:
+        type: number
+      tax:
+        type: number
+      total_price:
+        type: number
+      process_status:
+        type: string
+  ShippingInfo:
+    type: object
+    properties:
+      without_tax:
+        type: number
+      tax:
+        type: number
+      total:
+        type: number
+      status:
+        type: string
+  DeliveryInfo:
+    type: object
+    properties:
+      fullname:
+        type: string
+      phone:
+        type: string
+      address:
+        type: string
+      shipping_method:
+        type: string
+      shipping_note:
+        type: string
+  PaymentInfo:
+    type: object
+    properties:
+      fullname:
+        type: string
+      phone:
+        type: string
+      address:
+        type: string
+      email:
+        type: string
+      payment_method:
+        type: string
+      note:
+        type: string
+  ShopOrder:
+    type: object
+    properties:
+      guid:
+        type: number
+      time_created:
+        type: string
+      owner_guid:
+        type: number
+      description:
+        type: string
+      title:
+        type: string
+      type:
+        type: string
+      subtype:
+        type: string
+      process_status:
+        type: string
+      shop_guid:
+        type: string
+      currency:
+        type: string
+      customer:
+        type: string
+      total_price:
+        type: string
+      total_quantity:
+        type: string
+  ShopShipping:
+    type: object
+    properties:
+      guid:
+        type: number
+      time_created:
+        type: string
+      owner_guid:
+        type: string
+      description:
+        type: string
+      title:
+        type: string
+      type:
+        type: string
+      subtype:
+        type: string
+      shipping_method:
+        type: string
+      status:
+        type: string
+      customer:
+        type: string
+      order_guid:
+        type: number
+      total_price:
+        type: number
+      total_quantity:
+        type: number
+  Delivery_order:
+    type: object
+    properties:
+      guid:
+        type: number
+      time_created:
+        type: string
+      owner_guid:
+        type: number
+      description:
+        type: string
+      title:
+        type: string
+      shipping_fullname:
+        type: string
+      shipping_phone:
+        type: string
+      shipping_address:
+        type: string
+      shipping_province:
+        type: string
+      shipping_district:
+        type: string
+      shipping_ward:
+        type: string
+      shipping_note:
+        type: string
+      shipping_method:
+        type: string
+      shipping_fee:
+        type: string
+      item:
+        type: string
+      quantity:
+        type: number
+      status:
+        type: string
+      shipping_owner:
+        type: string
+      product:
+        $ref: "#/definitions/Product"

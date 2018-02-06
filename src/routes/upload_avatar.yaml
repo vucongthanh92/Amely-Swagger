@@ -1,0 +1,23 @@
+paths:
+  /upload_avatar:
+    patch:
+      operationId: upload_avatar
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            owner_guid:
+              type: number
+            avatar_type:
+              type: string
+            images:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
