@@ -48,5 +48,5 @@ paths:
           description: "Status 200"
           schema:
             type: array
-              items:
-                $ref: "#/definitions/ShopOrder"
+            items:
+              $ref: "#/definitions/ShopOrder"
