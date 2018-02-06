@@ -148,6 +148,8 @@ definitions:
         type: number
       key:
         type: string
+      chat_type:
+        type: string
   Product:
     type: object
     properties:
@@ -315,6 +317,9 @@ definitions:
         type: string
       avatar:
         type: string
+      store:
+        type:
+          $ref: "#/definitions/Store"  
       stores:
           type: array
           items:
