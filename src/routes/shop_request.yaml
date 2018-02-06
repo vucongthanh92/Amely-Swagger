@@ -1,0 +1,94 @@
+paths:
+  /shop_request:
+    get:
+      operationId: getRequestShop
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Shop"
+    put:
+      operationId: createRequestShop
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            shop_name:
+              type: string
+            shop_phone:
+              type: string
+            shop_address:
+              type: string
+            shop_bidn:
+              type: string
+            adjourn_price:
+              type: string
+            friendly_url:
+              type: string
+            shipping_method:
+              type: string
+            owner_name:
+              type: string
+            owner_phone:
+              type: string
+            owner_address:
+              type: string
+            owner_ssn:
+              type: string
+            ossn_photo:
+              type: string
+            approve:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+    patch:
+      operationId: updateRequestShop
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            shop_guid:
+              type: number
+            shop_name:
+              type: string
+            shop_phone:
+              type: string
+            shop_address:
+              type: string
+            shop_bidn:
+              type: string
+            adjourn_price:
+              type: string
+            friendly_url:
+              type: string
+            shipping_method:
+              type: string
+            owner_name:
+              type: string
+            owner_phone:
+              type: string
+            owner_address:
+              type: string
+            owner_ssn:
+              type: string
+            ossn_photo:
+              type: string
+            approve:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"

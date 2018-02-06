@@ -1,0 +1,23 @@
+paths:
+  /advertise:
+    post:
+      operationId: getAdvertises
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            advertise_type:
+              type: string
+            offset:
+              type: number
+            limit:
+              type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Advertise"

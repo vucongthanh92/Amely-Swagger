@@ -1,0 +1,23 @@
+paths:
+  /share:
+    put:
+      operationId: share
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            share_type:
+              type: string
+            subject_guid:
+              type: number
+            post:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"

@@ -1,0 +1,11 @@
+paths:
+  /banner:
+    post:
+      operationId: getBanners
+      consumes: []
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Banner"

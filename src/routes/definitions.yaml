@@ -714,3 +714,55 @@ definitions:
         type: string
       thousandSeparator:
         type: string
+  Advertise:
+    type: object
+    properties:
+      guid:
+        type: number
+      time_created:
+        type: string
+      owner_guid:
+        type: number
+      description:
+        type: string
+      title:
+        type: string
+      subtype:
+        type: string
+      advertise_type:
+        type: string
+      link:
+        type: string
+      start_date:
+        type: string
+      end_date:
+        type: string
+      budget:
+        type: number
+      cpc:
+        type: number
+      start_time:
+        type: string
+      end_time:
+        type: string
+      enabled:
+        type: string
+      currency:
+        type: string
+      admin_created:
+        type: string
+      approved:
+        type: string
+      amount:
+        type: number
+      number_click:
+        type: number
+  Banner:
+    type: object
+    properties:
+      banner_url:
+        type: string
+      link:
+        type: string
+      guid:
+        type: number

@@ -1,0 +1,60 @@
+paths:
+  /search:
+    get:
+      operationId: search
+      description: ""
+      parameters:
+      - name: q
+        in: query
+        required: true
+        type: string
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              users:
+                type: array
+                items:
+                  $ref: "#/definitions/User"
+              shops:
+                type: array
+                items:
+                  $ref: "#/definitions/Shop"
+              groups:
+                type: array
+                items:
+                  $ref: "#/definitions/Group"
+              events:
+                type: array
+                items:
+                  $ref: "#/definitions/Event"
+              business:
+                type: array
+                items:
+                  $ref: "#/definitions/Business"
+              products:
+                type: array
+                items:
+                  $ref: "#/definitions/Product"
+    post:
+      operationId: searchs
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            mobile:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              $ref: "#/definitions/User"

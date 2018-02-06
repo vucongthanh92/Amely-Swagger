@@ -1,0 +1,14 @@
+paths:
+  /click_ads:
+    get:
+      operationId: clickAds
+      parameters:
+      - name: advertise_guid
+        in: query
+        required: true
+        type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
