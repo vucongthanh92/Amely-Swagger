@@ -313,6 +313,9 @@ definitions:
         type: string
       avatar:
         type: string
+      store:
+        type:
+          $ref: "#/definitions/Store"  
       stores:
           type: array
           items:
@@ -653,6 +656,7 @@ definitions:
       title:
         type: string
       description:
+        type: string
   Order_item:
     type: object
     properties:
