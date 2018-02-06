@@ -1,0 +1,29 @@
+paths:
+  /currencies:
+    get:
+      operationId: getCurrency
+      parameters:
+      - name: iso_code
+        in: query
+        required: false
+        type: string
+        default: VND
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Currency"
+    post:
+      operationId: getCurrencies
+      description: ""
+      consumes: []
+      parameters:
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              type: array
+              items:
+                $ref: "#/definitions/Currency"

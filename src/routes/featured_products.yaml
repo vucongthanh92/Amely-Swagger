@@ -1,0 +1,10 @@
+paths:
+  /featured_products:
+    post:
+      operationId: getFeaturedProducts
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Product"

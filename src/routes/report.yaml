@@ -1,0 +1,24 @@
+paths:
+  /report:
+    put:
+      operationId: report
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            report_type:
+              type: string
+              description: "\"post\",\"event\",\"group\",\"user\""
+            guid:
+              type: number
+            reason:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"

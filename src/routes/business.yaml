@@ -1,0 +1,112 @@
+paths:
+  /business:
+    get:
+      operationId: getBusinessPage
+      parameters:
+      - name: business_guid
+        in: query
+        required: true
+        type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Business"
+    post:
+      operationId: getBusinessPages
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            owner_guid:
+              type: number
+            offset:
+              type: number
+            limit:
+              type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              pages:
+                type: array
+                items:
+                  $ref: "#/definitions/Business"
+              users:
+                type: array
+                items:
+                  $ref: "#/definitions/User"
+    put:
+      operationId: createBusinessPage
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+            description:
+              type: string
+            category:
+              type: string
+            phone:
+              type: string
+            address:
+              type: string
+            website:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+    patch:
+      operationId: updateBusinessPage
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            business_guid:
+              type: number
+            name:
+              type: string
+            description:
+              type: string
+            category:
+              type: string
+            phone:
+              type: string
+            address:
+              type: string
+            website:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+    delete:
+      operationId: deleteBusinessPage
+      parameters:
+      - name: business_guid
+        in: query
+        required: true
+        type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"

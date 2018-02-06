@@ -1,5 +1,27 @@
 paths:
   /events:
+    get:
+      operationId: getEvent
+      parameters:
+      - name: event_guid
+        in: query
+        required: true
+        type: number
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              events:
+                type: array
+                items:
+                  $ref: "#/definitions/Event"
+              users:
+                type: array
+                items:
+                  $ref: "#/definitions/User"
     post:
       operationId: getEvents
       parameters:
@@ -28,3 +50,101 @@ paths:
                 type: array
                 items:
                   $ref: "#/definitions/User"
+    put:
+      operationId: createEvent
+      consumes: []
+      parameters:
+      - name: body
+        in: "body"
+        required: true
+        schema:
+          type: object
+          properties:
+            title:
+              type: string
+            description:
+              type: string
+            start_date:
+              type: string
+            end_date:
+              type: string
+            country:
+              type: string
+            location:
+              type: string
+            template:
+              type: string
+            has_inventory:
+              type: string
+            status:
+              type: string
+            event_type:
+              type: string
+            owner_guid:
+              type: number
+            members:
+              type: array
+              items:
+                type: string
+            invites:
+              type: array
+              items:
+                type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+    patch:
+      operationId: updateEvent
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            event_guid:
+              type: number
+            title:
+              type: string
+            description:
+              type: string
+            start_date:
+              type: string
+            end_date:
+              type: string
+            country:
+              type: string
+            location:
+              type: string
+            template:
+              type: string
+            has_inventory:
+              type: string
+            status:
+              type: string
+            event_type:
+              type: string
+            owner_guid:
+              type: number
+            invites:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+    delete:
+        operationId: deleteEvent
+        parameters:
+        - name: event_guid
+          in: query
+          required: true
+          type: number
+        responses:
+          200:
+            description: "Status 200"
+            schema:
+              $ref: "#/definitions/DefaultResponse"

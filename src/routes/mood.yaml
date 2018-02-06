@@ -1,0 +1,22 @@
+paths:
+  /mood:
+    get:
+      operationId: getMood
+      parameters:
+      - name: mood_guid
+        in: query
+        required: true
+        type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Mood"
+    post:
+      operationId: getMoods
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Mood"
