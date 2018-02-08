@@ -926,3 +926,44 @@ definitions:
         type: string
       product:
         $ref: "#/definitions/Product"
+  Param_create_order:
+    type: object
+    properties:
+      fullname:
+        type: string
+      phone:
+        type: string
+      address:
+        type: string
+      province:
+        type: string
+      district:
+        type: string
+      ward:
+        type: string
+      note:
+        type: string
+      payment:
+        type: string
+      shipping_fullname:
+        type: string
+      shipping_phone:
+        type: string
+      shipping_address:
+        type: string
+      shipping_province:
+        type: string
+      shipping_district:
+        type: string
+      shipping_ward:
+        type: string
+      shipping_note:
+        type: string
+      shipping_method:
+        type: string
+      shipping_fee:
+        type: string
+      to_guid:
+        type: number
+
+
