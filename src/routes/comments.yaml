@@ -39,7 +39,16 @@ paths:
         200:
           description: "Status 200"
           schema:
-            $ref: "#/definitions/DefaultResponse"
+            type: object
+            properties:
+              comments:
+                type: array
+                items:
+                  $ref: "#/definitions/Comment"
+              users:
+                type: array
+                items:
+                  $ref: "#/definitions/User"
     put:
       operationId: createComment
       description: "insert a new comment"
