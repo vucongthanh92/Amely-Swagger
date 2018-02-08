@@ -589,7 +589,7 @@ definitions:
       follow:
         type: string
       followed:
-        type: string
+        type: boolean
       thought:
         type: string
   Gift:
@@ -965,5 +965,18 @@ definitions:
         type: string
       to_guid:
         type: number
-
-
+  Comment:
+    type: object
+    properties:
+      id:
+        type: number
+      time_created: 
+        type: number
+      owner_guid: 
+        type: number
+      subject_guid:
+        type: string 
+      type:
+        type: string
+      content: 
+        type: string

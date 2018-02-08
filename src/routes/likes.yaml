@@ -33,9 +33,7 @@ paths:
           - "type"
           properties:
             type:
-              type: array
-              items:
-                type: string
+              type: string
             guid:
               type: number
       responses:
@@ -48,10 +46,14 @@ paths:
       description: "unlike a feed"
       parameters:
       - name: "guid"
-        in: "query"
+        in: query
         required: true
         type: number
         description: "Global Unique IDentity"
+      - name: "type"
+        in: query
+        required: true
+        type: string
       responses:
         200:
           description: "Status 200"
