@@ -67,10 +67,12 @@ paths:
               type: string
             membership:
               type: string
+            has_inventory:
+              type: string
             members:
               type: array
               items:
-                type: string
+                type: number
       responses:
         200:
           description: "Status 200"
