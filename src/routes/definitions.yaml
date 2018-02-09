@@ -945,6 +945,8 @@ definitions:
         type: string
       payment:
         type: string
+      bankcode:
+        type: string
       shipping_fullname:
         type: string
       shipping_phone:
