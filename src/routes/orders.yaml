@@ -51,7 +51,10 @@ paths:
         200:
           description: "Status 200"
           schema:
-            $ref: "#/definitions/DefaultResponse"
+            type: object
+            properties:
+              url:
+                type: string
     patch:
       operationId: updateOrder
       description: "Update a order"
