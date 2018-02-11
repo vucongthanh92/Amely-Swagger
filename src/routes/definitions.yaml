@@ -1013,4 +1013,4 @@ definitions:
       quantity:
         type: number
       limit_counter:
-        type: string
+        type: number
