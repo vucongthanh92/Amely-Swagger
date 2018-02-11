@@ -28,7 +28,7 @@ definitions:
       likes:
         type: number
       liked:
-        type: boollean
+        type: boolean
       comments:
         type: number
       item_type:
@@ -981,6 +981,11 @@ definitions:
       type:
         type: string
       content: 
+        type: string
+  QRCode:
+    type: object
+    properties:
+      code:
         type: string
 
   Param_create_offer:
