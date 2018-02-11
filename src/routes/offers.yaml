@@ -44,38 +44,7 @@ paths:
         in: body
         required: true
         schema:
-          type: object
-          properties:
-            item_guid:
-              type: number
-            offer_type:
-              type: string
-              example: "\"normal\",\"random\",\"giveaway\"\n"
-            random_expiration:
-              type: boolean
-              description: "offer_type = random thi moi true/flase\ntrue lay thoi\
-                \ gian duration\nfalse ko."
-            giveaway_approval:
-              type: boolean
-              description: "offer_type = giveaway\ntrao doi mien phi co 2 che' do\n\
-                false: ai vo trc dc huong truoc\ntrue: set cho ai nhan ai ko"
-            target:
-              type: string
-              example: "\"public\",\"friends\",\"location\"\n"
-            location_lat:
-              type: string
-            location_lng:
-              type: string
-            duration:
-              type: number
-            note:
-              type: string
-            quantity:
-              type: number
-            limit_counter:
-              type: string
-          description: "switch(offer_type)\n  case \"random\"\n    request: random_expiration\n\
-            \  case \"giveaway\"\n    request: giveaway_approval"
+          $ref: "#/definitions/Param_create_offer"
       responses:
         200:
           description: "Status 200"

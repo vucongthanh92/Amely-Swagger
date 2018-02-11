@@ -982,8 +982,42 @@ definitions:
         type: string
       content: 
         type: string
+<<<<<<< HEAD
   QRCode:
     type: object
     properties:
       code:
+=======
+
+  Param_create_offer:
+    type: object
+    properties:
+      item_guid:
+        type: number
+      offer_type:
+        type: string
+        example: "\"normal\",\"random\",\"giveaway\"\n"
+      random_expiration:
+        type: boolean
+        description: "offer_type = random thi moi true/flase\ntrue lay thoi\
+          \ gian duration\nfalse ko."
+      giveaway_approval:
+        type: boolean
+        description: "offer_type = giveaway\ntrao doi mien phi co 2 che' do\n\
+          false: ai vo trc dc huong truoc\ntrue: set cho ai nhan ai ko"
+      target:
+        type: string
+        example: "\"public\",\"friends\",\"location\"\n"
+      location_lat:
+        type: string
+      location_lng:
+        type: string
+      duration:
+        type: number
+      note:
+        type: string
+      quantity:
+        type: number
+      limit_counter:
+>>>>>>> 83d1d719ff6ca8b1119797462c2e815700c2198b
         type: string
