@@ -1,0 +1,10 @@
+paths:
+  /services:
+    get:
+      operationId: getServices
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Services"

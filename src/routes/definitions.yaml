@@ -989,7 +989,6 @@ definitions:
     properties:
       code:
         type: string
-
   Param_create_offer:
     type: object
     properties:
@@ -1021,3 +1020,7 @@ definitions:
         type: number
       limit_counter:
         type: number
+  Services:
+    type: object
+    properties:
+      current_time: number
