@@ -505,6 +505,8 @@ definitions:
         $ref: "#/definitions/User"
       counter_offers:
         $ref: "#/definitions/CounterOffer"
+      seconds:
+        type: number
   CounterOffer:
     type: object
     properties:
