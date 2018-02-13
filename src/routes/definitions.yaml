@@ -1023,4 +1023,24 @@ definitions:
   Services:
     type: object
     properties:
-      current_time: number
+      current_time:
+        type: number
+  Param_create_gift: 
+    type: object
+    properties:
+      from_guid:
+        type: number
+      from_type:
+        type: string
+        description: "\"user\",\"group\",\"event\",\"business\""
+      to_guid:
+        type: number
+      to_type:
+        type: string
+        description: "\"user\",\"group\",\"event\",\"business\""
+      item_guid:
+        type: number
+      item_quantity:
+        type: number
+      message:
+        type: string
