@@ -49,7 +49,10 @@ paths:
         200:
           description: "Status 200"
           schema:
-            $ref: "#/definitions/DefaultResponse"
+            type: object
+            properties:
+              offer_guid:
+                type: number
     patch:
       operationId: updateOffer
       description: ""

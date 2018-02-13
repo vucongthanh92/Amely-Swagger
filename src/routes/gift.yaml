@@ -41,24 +41,7 @@ paths:
         in: "body"
         required: true
         schema:
-          type: object
-          properties:
-            from_guid:
-              type: number
-            from_type:
-              type: string
-              description: "\"user\",\"group\",\"event\",\"business\""
-            to_guid:
-              type: number
-            to_type:
-              type: string
-              description: "\"user\",\"group\",\"event\",\"business\""
-            item_guid:
-              type: number
-            item_quantity:
-              type: number
-            message:
-              type: string
+          $ref: "#/definitions/Param_create_gift"
       responses:
         200:
           description: "Status 200"
