@@ -5,7 +5,7 @@ definitions:
       token:
         type: string
       error:
-        type: number
+        type: string
       status:
         type: boolean
   Feed:
@@ -885,6 +885,8 @@ definitions:
         type: number
       total_quantity:
         type: number
+      liked:
+        type: boolean
   Delivery_order:
     type: object
     properties:

@@ -55,6 +55,4 @@ paths:
         200:
           description: "Status 200"
           schema:
-            type: object
-            properties:
-              $ref: "#/definitions/User"
+            $ref: "#/definitions/User"
