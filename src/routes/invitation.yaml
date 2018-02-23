@@ -24,7 +24,20 @@ paths:
         200:
           description: "Status 200"
           schema:
-            $ref: "#/definitions/DefaultResponse"
+            type: object
+            properties:
+              groups:
+                type: array
+                items:
+                  $ref: "#/definitions/Group"
+              users:
+                type: array
+                items:
+                  $ref: "#/definitions/User"
+              events:
+                type: array
+                items:
+                  $ref: "#/definitions/Event"
     put:
       operationId: createInvitation
       description: "Invite people other join"
@@ -43,7 +56,9 @@ paths:
             from_guid:
               type: number
             to_guid:
-              type: number
+              type: array
+              items:
+                type: number
             invitation_type:
               type: string
       responses:

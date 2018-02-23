@@ -14,9 +14,9 @@ paths:
             invitation_type:
               type: "string"
             from_guid:
-              type: "string"
+              type: number
             to_guid:
-              type: "string"
+              type: number
       responses:
         200:
           description: "Status 200"
@@ -29,11 +29,11 @@ paths:
       - name: "from_guid"
         in: "query"
         required: true
-        type: "string"
+        type: number
       - name: "to_guid"
         in: "query"
         required: true
-        type: "string"
+        type: number
       - name: "invitation_type"
         in: "query"
         required: true
