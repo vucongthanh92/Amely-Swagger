@@ -15,9 +15,7 @@ paths:
             type: object
             properties:
               events:
-                type: array
-                items:
-                  $ref: "#/definitions/Event"
+                $ref: "#/definitions/Event"
               users:
                 type: array
                 items:
@@ -32,6 +30,8 @@ paths:
           properties:
             event_type:
               type: string
+            event_guid:
+              type: number
             offset:
               type: number
             limit:
@@ -50,6 +50,12 @@ paths:
                 type: array
                 items:
                   $ref: "#/definitions/User"
+              token:
+                type: string
+              error:
+                type: string
+              status:
+                type: boolean
     put:
       operationId: createEvent
       consumes: []

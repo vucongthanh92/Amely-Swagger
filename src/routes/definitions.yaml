@@ -424,7 +424,7 @@ definitions:
       owner_user:
         type: number
       creator:
-        $ref: "#/definitions/Product"
+        $ref: "#/definitions/User"
       avatar:
         type: string
       cover:
@@ -460,6 +460,14 @@ definitions:
         type: number
       related_guid:
         type: number
+      payment_method:
+        type: string
+      bank_account_name:
+        type: string
+      bank_account_number:
+        type: string
+      paypal_email:
+        type: string
   Offer:
     type: object
     properties:
