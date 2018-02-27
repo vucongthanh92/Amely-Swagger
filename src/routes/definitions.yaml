@@ -1058,3 +1058,28 @@ definitions:
         type: number
       message:
         type: string
+  ProductGroup:
+    type: object
+    properties:
+      guid:
+        type: number
+      time_created:
+        type: number
+      owner_guid:
+        type: number
+      description:
+        type: string
+      title:
+        type: string
+      type:
+        type: string
+      subtype:
+        type: string
+      percent:
+        type: number
+      price:
+        type: number
+      currency:
+        type: string
+      status:
+        type: string

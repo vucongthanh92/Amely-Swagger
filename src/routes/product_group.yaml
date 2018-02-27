@@ -1,0 +1,13 @@
+paths:
+  /products:
+    post:
+      operationId: getProductGroups
+      consumes: []
+      parameters:
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/ProductGroup"
