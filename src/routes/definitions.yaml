@@ -101,6 +101,12 @@ definitions:
         type: string
       cover:
         type: string
+      birthdate_hidden:
+        type: string
+      mobile_hidden:
+        type: string
+      friends_hidden:
+        type: string
       mood:
         $ref: "#/definitions/Mood"
       shop:
@@ -711,6 +717,13 @@ definitions:
     type: object
   Payment_methods:
     type: object
+  Bankcode:
+    type: object
+    properties:
+      options:
+        type: array
+        items:
+          type: string 
   Options:
     type: object
   Wallet:
@@ -1092,4 +1105,31 @@ definitions:
       currency:
         type: string
       status:
+        type: string
+  Notification:
+    type: object
+    properties:
+      item_guid:
+        type: number
+      item_image:
+        type: number
+      item_quantity:
+        type: number
+      item_title:
+        type: string
+      notification_type:
+        type: string
+      poster_guid:
+        type: string
+      status:
+        type: string
+      subject_guid:
+        type: number
+      time_created:
+        type: number
+      username:
+        type: string
+      viewed:
+        type: boolean
+      title:
         type: string

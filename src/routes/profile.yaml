@@ -55,13 +55,12 @@ paths:
               type: string
             friends_hidden:
               type: string
+            mobile_hidden:
+              type: string
+            birthdate_hidden:
+              type: string
       responses:
         200:
           description: "Status 200"
           schema:
-            type: object
-            properties:
-              result:
-                $ref: "#/definitions/DefaultResponse"
-              user:
-                $ref: "#/definitions/User"
+            $ref: "#/definitions/DefaultResponse"

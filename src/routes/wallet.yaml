@@ -52,11 +52,24 @@ paths:
               type: string
             bank_account_number:
               type: string
+            bankcode:
+              type: string
       responses:
         200:
           description: "Status 200"
           schema:
-            $ref: "#/definitions/Wallet"
+            type: object
+            properties:
+              limit:
+                type: object
+              payment_method:
+                $ref: "#/definitions/Payment_methods"
+              url:
+                type: string
+              status:
+                type: boolean
+              bankcode:
+                $ref: "#/definitions/Bankcode"
     put:
       operationId: createWallet
       consumes: []
