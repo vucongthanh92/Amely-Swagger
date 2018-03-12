@@ -87,7 +87,7 @@ paths:
             manufacturer:
               type: string
             is_special:
-              type: string
+              type: number
             voucher_category:
               type: number
             ticket_category:
