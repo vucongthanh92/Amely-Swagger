@@ -8,4 +8,8 @@ paths:
         200:
           description: "Status 200"
           schema:
-            $ref: "#/definitions/Banner"
+            type: object
+            properties:
+              type: array
+              items:
+                $ref: "#/definitions/Banner"

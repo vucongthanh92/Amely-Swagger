@@ -7,4 +7,8 @@ paths:
         200:
           description: "Status 200"
           schema:
-            $ref: "#/definitions/Shop"
+            type: object
+            properties:
+              type: array
+              items:
+                $ref: "#/definitions/Shop"

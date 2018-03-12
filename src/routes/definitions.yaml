@@ -185,6 +185,8 @@ definitions:
         type: number
       expiry_type:
         type: number
+      advertise_guid:
+        type: number
       friendly_url:
         type: string
       currency:
@@ -335,6 +337,8 @@ definitions:
         type: string
       liked:
         type: boolean
+      advertise_guid:
+        type: number
       store:
         type:
           $ref: "#/definitions/Store"  
@@ -812,6 +816,20 @@ definitions:
         type: string
       guid:
         type: number
+      type:
+        type: string
+      shop_guid:
+        type: number
+      group_guid:
+        type: number
+      shop_owner_guid:
+        type: number
+      product_guid:
+        type: number
+      event_guid:
+        type: number
+      page_guid:
+        type: number
   OrderInfo:
     type: object
     properties:
@@ -1021,6 +1039,8 @@ definitions:
         type: string
       content: 
         type: string
+      photo: 
+        type: string
   QRCode:
     type: object
     properties:
@@ -1133,3 +1153,17 @@ definitions:
         type: boolean
       title:
         type: string
+      from_user:
+        $ref: "#/definitions/User"  
+      to_user:
+        $ref: "#/definitions/User"  
+      group:
+        $ref: "#/definitions/User"  
+      event:
+        $ref: "#/definitions/User"  
+      business:
+        $ref: "#/definitions/User"  
+      gift:
+        $ref: "#/definitions/Gift"  
+      offer:
+        $ref: "#/definitions/Offer"  
