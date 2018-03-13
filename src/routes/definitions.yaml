@@ -245,6 +245,8 @@ definitions:
         type: array
         items:
           type: string
+      unit:
+        type: string
   Item:
     type: object
     properties:
@@ -341,7 +343,7 @@ definitions:
         type: number
       store:
         type:
-          $ref: "#/definitions/Store"  
+          $ref: "#/definitions/Store"
       stores:
           type: array
           items:
@@ -727,7 +729,7 @@ definitions:
       options:
         type: array
         items:
-          type: string 
+          type: string
   Options:
     type: object
   Wallet:
@@ -1029,17 +1031,17 @@ definitions:
     properties:
       id:
         type: number
-      time_created: 
+      time_created:
         type: number
-      owner_guid: 
+      owner_guid:
         type: number
       subject_guid:
-        type: string 
+        type: string
       type:
         type: string
-      content: 
+      content:
         type: string
-      photo: 
+      photo:
         type: string
   QRCode:
     type: object
@@ -1082,7 +1084,7 @@ definitions:
     properties:
       current_time:
         type: number
-  Param_create_gift: 
+  Param_create_gift:
     type: object
     properties:
       from_guid:
@@ -1154,16 +1156,16 @@ definitions:
       title:
         type: string
       from_user:
-        $ref: "#/definitions/User"  
+        $ref: "#/definitions/User"
       to_user:
-        $ref: "#/definitions/User"  
+        $ref: "#/definitions/User"
       group:
-        $ref: "#/definitions/User"  
+        $ref: "#/definitions/User"
       event:
-        $ref: "#/definitions/User"  
+        $ref: "#/definitions/User"
       business:
-        $ref: "#/definitions/User"  
+        $ref: "#/definitions/User"
       gift:
-        $ref: "#/definitions/Gift"  
+        $ref: "#/definitions/Gift"
       offer:
         $ref: "#/definitions/Offer"  

@@ -21,7 +21,7 @@ paths:
                 items:
                   $ref: "#/definitions/Category"
               shop:
-                $ref: "#/definitions/Shop"  
+                $ref: "#/definitions/Shop"
     post:
       operationId: getProducts
       consumes: []
@@ -148,6 +148,8 @@ paths:
                 type: string
             unit:
               type: string
+            enabled:
+              type: string
       responses:
         200:
           description: "Status 200"
@@ -236,6 +238,8 @@ paths:
               items:
                 type: string
             unit:
+              type: string
+            enabled:
               type: string
       responses:
         200:
