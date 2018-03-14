@@ -15,7 +15,9 @@ paths:
             avatar_type:
               type: string
             images:
-              type: string
+              type: array
+              items:
+                type: string
       responses:
         200:
           description: "Status 200"
