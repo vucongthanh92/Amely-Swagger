@@ -28,9 +28,11 @@ paths:
               offer:
                 type: array
                 items:
-                  type: string
+                  $ref: "#/definitions/Offer"
               users:
-                $ref: "#/definitions/User"
+                type: array
+                items:
+                  $ref: "#/definitions/User"
     put:
       operationId: createBookmark
       description: ""

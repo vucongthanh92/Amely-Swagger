@@ -23,9 +23,13 @@ paths:
             type: object
             properties:
               dos:
-                $ref: "#/definitions/Delivery_order"
+                type: array
+                items:
+                  $ref: "#/definitions/Delivery_order"
               shops:
-                $ref: "#/definitions/Shop"
+                type: array
+                items:
+                  $ref: "#/definitions/Shop"
     put:
       operationId: createDO
       consumes: []

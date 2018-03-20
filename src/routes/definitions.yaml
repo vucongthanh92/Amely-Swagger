@@ -193,6 +193,8 @@ definitions:
         type: number
       expiry_type:
         type: number
+      qty:
+        type: number
       advertise_guid:
         type: number
       friendly_url:
@@ -343,6 +345,10 @@ definitions:
         type: string
       avatar:
         type: string
+      avatar_url:
+        type: string
+      cover_url:
+        type: string
       reason:
         type: string
       liked:
@@ -488,6 +494,16 @@ definitions:
         type: string
       quantity:
         type: number
+      tax:
+        type: number
+      sub_total:
+        type: number
+      shipping_fee:
+        type: number
+      commission_price:
+        type: number
+      commission_percent:
+        type: number
       related_guid:
         type: number
       payment_method:
@@ -629,7 +645,7 @@ definitions:
       cover:
         type: string
       owner:
-        type: string
+        $ref: "#/definitions/User"
       follow:
         type: string
       followed:
@@ -726,7 +742,9 @@ definitions:
       payment_method:
         type: string
       order_item:
-        $ref: "#/definitions/Order_item"
+        type: array
+        items:
+          $ref: "#/definitions/Product"
   Shipping_methods:
     type: object
   Payment_methods:
@@ -1177,3 +1195,18 @@ definitions:
         $ref: "#/definitions/Gift"
       offer:
         $ref: "#/definitions/Offer"  
+  Temp_order:
+    type: object
+    properties:
+      products:
+        type: object
+      shop:
+        $ref: "#/definitions/Shop"
+      total:
+        type: number
+      tax:
+        type: number
+      sub_total:
+        type: number
+      to_guid:
+        type: number

@@ -1,0 +1,17 @@
+paths:
+  /temp_order:
+    get:
+      operationId: getTempOrderFromQR
+      description: ""
+      parameters:
+      - name: qrcode
+        in: query
+        required: true
+        type: string
+        description: "Global Unique IDentity"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Temp_order"
+   

@@ -7,7 +7,9 @@ paths:
         200:
           description: "Status 200"
           schema:
-            $ref: "#/definitions/User"
+            type: array
+            items:
+              $ref: "#/definitions/User"
     put:
       operationId: createBlock
       consumes: []
