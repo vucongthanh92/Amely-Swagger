@@ -14,4 +14,18 @@ paths:
           description: "Status 200"
           schema:
             $ref: "#/definitions/Temp_order"
+    put:
+      operationId: createTempOrderFromQR
+      description: ""
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: "#/definitions/Param_create_TempOrder"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
    

@@ -10,6 +10,8 @@ definitions:
         type: boolean
       validation:
         $ref: "#/definitions/User"
+      code:
+        type: string
   Feed:
     type: object
     properties:
@@ -1051,6 +1053,24 @@ definitions:
       shipping_fee:
         type: string
       to_guid:
+        type: number
+  Param_create_TempOrder:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: "#/definitions/Param_item_temporder"
+      shipping_method:
+        type: string
+      shop_guid:
+        type: string
+  Param_item_temporder:
+    type: object
+    properties:
+      guid:
+        type: number
+      quantity:
         type: number
   Comment:
     type: object
