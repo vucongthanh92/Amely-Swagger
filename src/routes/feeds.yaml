@@ -61,9 +61,7 @@ paths:
                 items:
                   $ref: "#/definitions/Mood"
               shares:
-                type: array
-                items:
-                  $ref: "#/definitions/Share"
+                $ref: "#/definitions/Share"
     put:
       operationId: createFeed
       description: "Post a new feed (Can't upload image)"

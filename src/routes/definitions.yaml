@@ -113,6 +113,10 @@ definitions:
         type: string
       friends_hidden:
         type: string
+      offer_count:
+        type: number
+      gift_count:
+        type: number
       mood:
         $ref: "#/definitions/Mood"
       shop:
@@ -279,6 +283,8 @@ definitions:
       inventory_type:
         type: string
       quantity:
+        type: number
+      quantity_redeem:
         type: number
       product_snapshot:
         $ref: "#/definitions/Product"

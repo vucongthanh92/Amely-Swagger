@@ -4,7 +4,7 @@ paths:
       operationId: deleteImageProduct
       description: ""
       parameters:
-      - name: entities_guid
+      - name: entity_guid
         in: query
         required: true
         type: number
