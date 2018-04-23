@@ -12,6 +12,10 @@ definitions:
         $ref: "#/definitions/User"
       code:
         type: string
+      url:
+        type: string
+      to_guid:
+        type: number
   Feed:
     type: object
     properties:
@@ -121,6 +125,12 @@ definitions:
         $ref: "#/definitions/Mood"
       shop:
         $ref: "#/definitions/Shop"
+      province:
+        type: string
+      district:
+        type: string
+      ward: 
+        type: string        
   Group:
     type: "object"
     properties:
@@ -199,6 +209,10 @@ definitions:
         type: number
       expiry_type:
         type: number
+      display_price:
+        type: number
+      display_currency:
+        type: string
       qty:
         type: number
       advertise_guid:
@@ -227,6 +241,8 @@ definitions:
         type: string
       number_sold:
         type: number
+      redeem_quantity:
+        type: number
       download:
         type: number
       featured:
@@ -246,6 +262,10 @@ definitions:
       current_snapshot:
         type: number
       voucher_category:
+        type: number
+      hasInventory:
+        type: number
+      display_quantity:
         type: number
       ticket_category:
         type: number
@@ -285,6 +305,8 @@ definitions:
       quantity:
         type: number
       quantity_redeem:
+        type: number
+      quantity_temp:
         type: number
       product_snapshot:
         $ref: "#/definitions/Product"
@@ -359,6 +381,10 @@ definitions:
         type: string
       reason:
         type: string
+      coverurl:
+        type: string
+      avatarurl:
+        type: string
       liked:
         type: boolean
       advertise_guid:
@@ -426,6 +452,8 @@ definitions:
         type: number
       logo:
         type: string
+      isParent:
+        type: boolean
   Event:
     type: object
     properties:
@@ -522,6 +550,10 @@ definitions:
         type: string
       paypal_email:
         type: string
+      onepay_result:
+        type: string
+      order_guid:
+        type: number
   Offer:
     type: object
     properties:
@@ -1236,3 +1268,40 @@ definitions:
         type: number
       to_guid:
         type: number
+      items:
+        type: array
+        items:
+          type: array
+          items:
+            $ref: "#/definitions/Item"
+  Order_redeem:
+    type: object
+    properties:
+      products:
+        type: array
+        items:
+          $ref: "#/definitions/Product"
+      shop:
+        $ref: "#/definitions/Shop"
+      total:
+        type: number
+      tax:
+        type: number
+      sub_total:
+        type: number
+      to_guid:
+        type: number
+      process_status:
+        type: string
+      payment:
+        type: string
+  search_responses:
+    type: object
+    properties:
+      user:
+        $ref: "#/definitions/User"
+      products:
+        type: array
+        items:
+          $ref: "#/definitions/Product"
+

@@ -1,0 +1,31 @@
+paths:
+  /quickpay:
+    put:
+      operationId: quickPayCreate
+      description: 
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: "#/definitions/Param_create_order"  
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+    patch:
+      operationId: quickPayUpdate
+      description: 
+      consumes: []
+      parameters:
+      - name: "to_guid"
+        in: "query"
+        required: true
+        type: number
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"

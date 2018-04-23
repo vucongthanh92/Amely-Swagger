@@ -37,6 +37,8 @@ paths:
                 type: array
                 items:
                   $ref: "#/definitions/Cart_item"
+              status:
+                type: boolean
     put:
       operationId: createCart
       description: "Put new products into the user's cart"

@@ -2,7 +2,7 @@ swagger: "2.0"
 info:
   version: "0.0.1"
   title: Amely API
-host: dev.helloqua.com
+host: amely.com
 basePath: /ws/v1
 schemes:
   - https

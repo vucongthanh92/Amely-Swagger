@@ -59,6 +59,14 @@ paths:
               type: string
             birthdate_hidden:
               type: string
+            province:
+              type: string
+            district:
+              type: string
+            ward:
+              type: string
+            address:
+              type: string  
       responses:
         200:
           description: "Status 200"

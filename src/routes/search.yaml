@@ -51,8 +51,14 @@ paths:
           properties:
             mobile:
               type: string
+            text_search:
+              type: string
+            category:
+              type: string
+            type:
+              type: string
       responses:
         200:
           description: "Status 200"
           schema:
-            $ref: "#/definitions/User"
+            $ref: "#/definitions/search_responses"   

@@ -1,0 +1,23 @@
+paths:
+  /order_redeem:
+    post:
+      operationId: orderRedeem
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            to_guid:
+              type: string
+            product_guid:
+              type: string
+            redeem_quantity:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Order_redeem"   
