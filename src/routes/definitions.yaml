@@ -1168,6 +1168,10 @@ definitions:
     properties:
       current_time:
         type: number
+      limit_offer:
+        type: number
+      limit_gift:
+        type: number
   Param_create_gift:
     type: object
     properties:
