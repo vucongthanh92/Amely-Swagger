@@ -324,6 +324,8 @@ definitions:
         type: string
       givelist:
         type: string
+      currency:
+        type: string
   Shop:
     type: object
     properties:
@@ -1264,6 +1266,8 @@ definitions:
         type: object
       shop:
         $ref: "#/definitions/Shop"
+      user:
+        $ref: "#/definitions/User"
       total:
         type: number
       tax:
