@@ -308,6 +308,8 @@ definitions:
         type: number
       quantity_temp:
         type: number
+      currency:
+        type: number
       product_snapshot:
         $ref: "#/definitions/Product"
       expiry_type:
