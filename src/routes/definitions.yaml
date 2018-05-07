@@ -308,7 +308,7 @@ definitions:
         type: number
       quantity_temp:
         type: number
-      currency:
+      adjourn_price:
         type: number
       product_snapshot:
         $ref: "#/definitions/Product"
