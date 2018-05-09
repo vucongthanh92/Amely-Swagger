@@ -361,6 +361,8 @@ definitions:
         type: string
       cover:
         type: string
+      policy:
+        type: string
       contact:
         type: string
       lat:
