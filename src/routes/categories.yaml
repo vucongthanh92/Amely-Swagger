@@ -31,6 +31,8 @@ paths:
               type: number
             shop_guid:
               type: number
+            is_shop:
+              type: boolean
             type:
               type: number
               description: 2-vocher 3-tick default-market
