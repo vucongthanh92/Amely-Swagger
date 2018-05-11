@@ -357,6 +357,8 @@ definitions:
         type: string
       owner_address:
         type: string
+      owner_username:
+        type: string
       owner_ssn:
         type: string
       cover:
