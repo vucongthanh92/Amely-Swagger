@@ -973,6 +973,8 @@ definitions:
         type: string
       subtype:
         type: string
+      shipping_status:
+        type: string
       process_status:
         type: string
       shop_guid:
