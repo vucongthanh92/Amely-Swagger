@@ -345,6 +345,12 @@ definitions:
         type: string
       shop_address:
         type: string
+      shop_province:
+        type: string
+      shop_district:
+        type: string
+      shop_ward:
+        type: string
       shop_bidn:
         type: string
       friendly_url:
@@ -360,6 +366,12 @@ definitions:
       owner_username:
         type: string
       owner_ssn:
+        type: string
+      owner_ward:
+        type: string
+      owner_district:
+        type: string
+      owner_province:
         type: string
       cover:
         type: string
@@ -778,6 +790,19 @@ definitions:
         type: string
       items:
         $ref: "#/definitions/Product"
+  OrderGet:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: "#/definitions/Product"
+      shops:
+        type: array
+        items:
+          $ref: "#/definitions/Shop"
+      order:
+        $ref: "#/definitions/Order"
   Order:
     type: object
     properties:

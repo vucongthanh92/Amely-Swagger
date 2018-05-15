@@ -44,6 +44,18 @@ paths:
               type: string
             approve:
               type: string
+            shop_province:
+              type: string
+            shop_district:
+              type: string
+            shop_ward:
+              type: string
+            owner_province:
+              type: string
+            owner_district:
+              type: string
+            owner_ward:
+              type: string
       responses:
         200:
           description: "Status 200"
