@@ -1,0 +1,39 @@
+paths:
+  /shipping:
+    post:
+      operationId: getShippingFee
+      description: "Get shipping fee"
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            shipping_method:
+              type: string
+            shipping_name:
+              type: string
+            shipping_phone:
+              type: string
+            shipping_address:
+              type: string
+            shipping_province:
+              type: string
+            shipping_district:
+              type: string
+            shipping_ward:
+              type: string
+            shipping_note:
+              type: string
+            to_guid:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              fee:
+                type: number
