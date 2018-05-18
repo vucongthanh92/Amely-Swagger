@@ -143,7 +143,7 @@ paths:
               items:
                 type: string
             images:
-              type: array
+              type: arraygetProduct
               items:
                 type: string
             unit:

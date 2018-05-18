@@ -211,6 +211,8 @@ definitions:
         type: number
       display_price:
         type: number
+      display_old_price:
+        type: number
       display_currency:
         type: string
       qty:
