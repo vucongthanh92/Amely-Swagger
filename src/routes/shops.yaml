@@ -57,6 +57,12 @@ paths:
               type: string
             contact:
               type: string
+            shop_province:
+              type: string
+            shop_district:
+              type: string
+            shop_ward:
+              type: string
             stores:
               type: array
               items:
