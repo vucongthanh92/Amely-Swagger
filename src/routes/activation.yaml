@@ -18,6 +18,8 @@ paths:
               type: "string"
             code:
               type: "string"
+            email:
+              type: "string"
         x-examples:
           application/json: "{\n  \"username\": \"demo\",\n  \"password\": \"demo123\"\
             \n}\n"

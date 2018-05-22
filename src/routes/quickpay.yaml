@@ -29,3 +29,21 @@ paths:
           description: "Status 200"
           schema:
             $ref: "#/definitions/DefaultResponse"
+    delete:
+      operationId: quickpayDelete
+      description: 
+      consumes: []
+      parameters:
+      - name: "to_guid"
+        in: "query"
+        required: true
+        type: number
+      - name: "isShop"
+        in: "query"
+        required: true
+        type: boolean
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"
