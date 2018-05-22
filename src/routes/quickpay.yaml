@@ -38,10 +38,10 @@ paths:
         in: "query"
         required: true
         type: number
-      - name: "isShop"
+      - name: "is_shop"
         in: "query"
         required: true
-        type: boolean
+        type: string
       responses:
         200:
           description: "Status 200"

@@ -66,6 +66,8 @@ paths:
                 type: array
                 items:
                   $ref: "#/definitions/Category"
+              offset:
+                type: number
     put:
       operationId: createProduct
       consumes: []
@@ -143,7 +145,7 @@ paths:
               items:
                 type: string
             images:
-              type: arraygetProduct
+              type: array
               items:
                 type: string
             unit:
