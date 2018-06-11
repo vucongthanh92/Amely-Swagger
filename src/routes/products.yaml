@@ -52,6 +52,8 @@ paths:
               type: number
             limit:
               type: number
+            product_number:
+              type: string
       responses:
         200:
           description: "Status 200"

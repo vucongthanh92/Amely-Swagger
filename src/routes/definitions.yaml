@@ -576,6 +576,10 @@ definitions:
         type: string
       order_guid:
         type: number
+      product_snapshot:
+        type: string
+      do_guid:
+        type: string
   Offer:
     type: object
     properties:
@@ -816,6 +820,10 @@ definitions:
         type: string
       payment_method:
         type: string
+      shipping_fee:
+        type: number
+      total:
+        type: number
       order_item:
         type: array
         items:
@@ -1058,6 +1066,8 @@ definitions:
         type: number
       description:
         type: string
+      status:
+        type: boolean
       title:
         type: string
       shipping_fullname:
@@ -1082,8 +1092,6 @@ definitions:
         type: string
       quantity:
         type: number
-      status:
-        type: string
       shipping_owner:
         type: string
       product:

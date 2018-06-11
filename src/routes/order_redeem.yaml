@@ -15,7 +15,7 @@ paths:
             product_guid:
               type: string
             redeem_quantity:
-              type: string
+              type: number
       responses:
         200:
           description: "Status 200"
