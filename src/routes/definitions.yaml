@@ -1094,8 +1094,16 @@ definitions:
         type: number
       shipping_owner:
         type: string
+      ghtk_success:
+        type: string
       product:
         $ref: "#/definitions/Product"
+      products:
+        type: array
+        items:
+          $ref: "#/definitions/Product"
+      address:
+        type: string
   Param_create_order:
     type: object
     properties:
