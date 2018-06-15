@@ -1047,8 +1047,40 @@ definitions:
         type: string
       customer:
         type: string
+      so_guid:
+        type: string
+      product_snapshot:
+        type: string
+      ghtk_status:
+        type: string
+      ghtk_status_text:
+        type: string
+      item:
+        type: string
+      quantity:
+        type: string
+      order_item_snapshot:
+        type: string
+      ghtk_success:
+        type: string
       order_guid:
         type: number
+      shipping_fullname:
+        type: string
+      shipping_phone:
+        type: string
+      shipping_address:
+        type: string
+      shipping_province:
+        type: string
+      shipping_district:
+        type: string
+      shipping_ward:
+        type: string
+      shipping_note:
+        type: string
+      shipping_fee:
+        type: string
       total_price:
         type: number
       total_quantity:
