@@ -17,3 +17,26 @@ paths:
                 type: array
                 items:
                   $ref: "#/definitions/Transaction"
+    post:
+      operationId: postTransactions
+      description: "Return transactions"
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            transaction_type:
+              type: string
+            shop_guid:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+                type: array
+                items:
+                  $ref: "#/definitions/Transaction"

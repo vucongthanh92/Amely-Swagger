@@ -1,0 +1,27 @@
+paths:
+  /transaction_redeem:
+    get:
+      operationId: getTransactionRedeem
+      parameters:
+      - name: snapshot_guid
+        in: query
+        required: true
+        type: string
+      - name: quantity
+        in: query
+        required: true
+        type: string
+      - name: owner_guid
+        in: query
+        required: true
+        type: string
+      - name: seller_guid
+        in: query
+        required: true
+        type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/RedeemHistoryDetail"
+   

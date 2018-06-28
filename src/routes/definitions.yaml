@@ -582,6 +582,8 @@ definitions:
         type: string
       do_guid:
         type: string
+      seller:
+        type: string
   Offer:
     type: object
     properties:
@@ -1397,4 +1399,13 @@ definitions:
         type: array
         items:
           $ref: "#/definitions/Product"
+  RedeemHistoryDetail:
+    type: object
+    properties:
+      snapshot:
+        $ref: "#/definitions/Product"
+      shop:
+        $ref: "#/definitions/Shop"
+      owner:
+        $ref: "#/definitions/User"
 
