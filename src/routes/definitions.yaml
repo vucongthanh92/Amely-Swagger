@@ -1140,6 +1140,8 @@ definitions:
           $ref: "#/definitions/Product"
       address:
         type: string
+      url:
+        type: string
   Param_create_order:
     type: object
     properties:

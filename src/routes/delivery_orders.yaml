@@ -68,6 +68,8 @@ paths:
               type: number
             product_snapshot:
               type: string
+            payment_method:
+              type: string
       responses:
         200:
           description: "Status 200"
