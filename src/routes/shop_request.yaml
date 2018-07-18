@@ -79,13 +79,15 @@ paths:
               type: string
             shop_address:
               type: string
+            shop_province:
+              type: string
+            shop_district:
+              type: string
+            shop_ward:
+              type: string
             shop_bidn:
               type: string
-            adjourn_price:
-              type: string
             friendly_url:
-              type: string
-            shipping_method:
               type: string
             owner_name:
               type: string
@@ -93,11 +95,15 @@ paths:
               type: string
             owner_address:
               type: string
+            owner_province:
+              type: string
+            owner_district:
+              type: string
+            owner_ward:
+              type: string
             owner_ssn:
               type: string
-            ossn_photo:
-              type: string
-            approve:
+            adjourn_price:
               type: string
       responses:
         200:

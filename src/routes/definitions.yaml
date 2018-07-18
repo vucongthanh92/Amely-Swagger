@@ -18,6 +18,8 @@ definitions:
         type: number
       guid:
         type: string
+      page:
+        type: string
   Feed:
     type: object
     properties:
@@ -118,6 +120,8 @@ definitions:
       mobile_hidden:
         type: string
       friends_hidden:
+        type: string
+      full_address:
         type: string
       offer_count:
         type: number
@@ -409,6 +413,14 @@ definitions:
         type: string
       avatarurl:
         type: string
+      full_address:
+        type: string
+      shipping_status:
+        type: string
+      shipping_fee:
+        type: string
+      owner_full_address:
+        type: string
       liked:
         type: boolean
       advertise_guid:
@@ -436,6 +448,8 @@ definitions:
       type:
         type: string
       subtype:
+        type: string
+      full_address:
         type: string
       address:
         type: string

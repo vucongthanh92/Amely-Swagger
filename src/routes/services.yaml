@@ -8,3 +8,23 @@ paths:
           description: "Status 200"
           schema:
             $ref: "#/definitions/Services"
+    post:
+      operationId: getPolicy
+      description: "Get shipping fee"
+      consumes: []
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+            value:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/DefaultResponse"

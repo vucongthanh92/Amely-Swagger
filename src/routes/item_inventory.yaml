@@ -27,6 +27,8 @@ paths:
               type: number
             item_guid:
               type: number
+            payment_method:
+              type: string
       responses:
         200:
           description: "Status 200"
