@@ -123,6 +123,8 @@ definitions:
         type: string
       full_address:
         type: string
+      chain_store:
+        type: string
       offer_count:
         type: number
       gift_count:
