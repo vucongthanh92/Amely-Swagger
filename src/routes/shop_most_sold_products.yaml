@@ -1,0 +1,23 @@
+paths:
+  /shop/most_sold_products:
+    post:
+      operationId: getShopMostSoldProducts
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            shop_guid:
+              type: string
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: object
+            properties:
+              type: array
+              items:
+                $ref: "#/definitions/Product" 
