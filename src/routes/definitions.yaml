@@ -139,6 +139,8 @@ definitions:
         type: string
       ward: 
         type: string        
+      requested: 
+        type: string        
   Group:
     type: "object"
     properties:
@@ -1279,6 +1281,8 @@ definitions:
         type: number
       limit_gift:
         type: number
+      ios_version:
+        type: number
   Param_create_gift:
     type: object
     properties:
@@ -1426,4 +1430,39 @@ definitions:
         $ref: "#/definitions/Shop"
       owner:
         $ref: "#/definitions/User"
-
+  InventoryGetResponse:
+    type: object
+    properties:
+      count:
+        $ref: "#/definitions/InventoryGetCountResponse"
+      total_price:
+        type: number
+      total_type:
+        type: number
+      total_quantity:
+        type: number
+  InventoryGetCountResponse:
+    type: object
+    properties:
+      new:
+        type: number
+      wishlist:
+        type: number
+      givelist:
+        type: number
+      expired:
+        type: number
+      expiry:
+        type: number
+      non_expiry:
+        type: number
+      voucher:
+        type: number
+      ticket:
+        type: number
+      stored:
+        type: number
+      nearly_expiry:
+        type: number
+      nearly_stored:
+        type: number

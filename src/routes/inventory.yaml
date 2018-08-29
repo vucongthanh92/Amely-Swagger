@@ -13,11 +13,16 @@ paths:
         required: false
         type: string
         description: "Global Unique IDentity"
+      - name: "limit"
+        in: "query"
+        required: false
+        type: number
+        description: "Global Unique IDentity"
       responses:
         200:
           description: "Status 200"
           schema:
-            $ref: "#/definitions/Item"
+            $ref: "#/definitions/InventoryGetResponse"
     post:
       operationId: getInventoryByType
       consumes: []
